@@ -143,7 +143,7 @@ public class PlatformManager : MonoBehaviour
 
     private void ChooseNextSegment()
     {
-        currentSegment = segments[Random.Range(1, segments.Count)]; // Choix aléatoire sauf le premier
+        currentSegment = segments[Random.Range(0, segments.Count)]; // Choix aléatoire sauf le premier
         currentSegmentTop += currentSegment.segmentHeight;
     }
 
