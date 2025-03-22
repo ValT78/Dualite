@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sherlock running_0: -1616520498876295669
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

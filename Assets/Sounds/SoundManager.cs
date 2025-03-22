@@ -7,6 +7,7 @@ public enum SoundType
     Shoot1,
     Shoot2,
     Shoot3,
+    Mob,
     Kill,
     Hit,
     Coin,
