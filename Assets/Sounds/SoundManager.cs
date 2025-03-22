@@ -4,7 +4,9 @@ public enum SoundType
 {
     Jump,
     Death,
-    Shoot,
+    Shoot1,
+    Shoot2,
+    Shoot3,
     Kill,
     Hit,
     Coin,
@@ -13,6 +15,7 @@ public enum SoundType
     Resume,
     Quit,
     Button,
+    PlatformBreak,
 }
 
 [RequireComponent(typeof(AudioSource))]
