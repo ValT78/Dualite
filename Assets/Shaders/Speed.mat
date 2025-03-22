@@ -36,7 +36,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _Alpha: 0
+    - _intensity: 4
+    - _power: 5
+    - _speed: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 0.21568628}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
