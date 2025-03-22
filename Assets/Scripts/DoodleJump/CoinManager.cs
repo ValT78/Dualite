@@ -5,7 +5,7 @@ public class CoinManager : MonoBehaviour
 {
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform coinContainer;
-    [SerializeField] private float coinSpacing = 0.5f;
+    [SerializeField] private float coinSpacing;
 
     public void SpawnCoinTrail(Vector2 startPosition)
     {
