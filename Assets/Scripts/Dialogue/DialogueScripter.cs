@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DialogueScripter    : MonoBehaviour
 {
     public static DialogueScripter Instance;
 
-    public Dialogue dialogue = new Dialogue("Name", "hello world");
+    public Dialogue dialogue;
     public float speed;
     public GameObject npcPrefab; 
     public GameObject npcObject;
     private bool facingRight = true;
     public List<Sprite> allSprites;
     [SerializeField] SpriteRenderer spriteRenderer;
+
+    [SerializeField] Story story; 
+    [SerializeField] TextMeshProUGUI proposion1;
+    [SerializeField] TextMeshProUGUI proposion2;
+    [SerializeField] TextMeshProUGUI proposion3;
+
 
     private void Awake()
     {
@@ -22,10 +30,26 @@ public class DialogueScripter    : MonoBehaviour
 
     void Start()
     {
-        ChangeSprite();
-        StartCoroutine(IsComing());
+        ResetSprite();
 
     }
+
+    private string GetNameFromNode(StoryNode node)
+    {
+        if (node.HasTag("boss")) return "Boss";
+        if (node.HasTag("maman")) return "Maman";
+        if (node.HasTag("michel")) return "Michel";
+        return "No Name";
+    }
+
+    private void SetOptions(StoryNode node)
+    {
+        List<NextNode> nexts = node.GetNextNodes();
+        proposion1.text = nexts[0].display;
+        proposion2.text = nexts[1].display;
+        proposion3.text = nexts[2].display;
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E))
@@ -82,6 +106,12 @@ public class DialogueScripter    : MonoBehaviour
 
     private void ResetSprite()
     {
+        story.SetNextNode("boss01");
+        StoryNode node = story.GetCurrentNode();
+        string name = GetNameFromNode(node);
+        dialogue = new Dialogue(name, node.getText());
+        SetOptions(node);
+
         npcObject.transform.localPosition = new Vector3 (0f, 0f, 0f); 
         spriteRenderer.flipX = false;
         // Reset dialogue 
