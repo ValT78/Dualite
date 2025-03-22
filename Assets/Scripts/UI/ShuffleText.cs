@@ -1,4 +1,3 @@
-using System.Linq;
 using TMPro;
 using UnityEngine;
 [RequireComponent(typeof(TextMeshProUGUI))]
@@ -12,11 +11,18 @@ public class ShuffleText : MonoBehaviour
     [SerializeField] float delay;
     private float timer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void OnEnable()
+    {
+        if(!GameManager.Instance) return;
+        textMask = new bool[text.text.Length];
+        Debug.Log(GameManager.Instance.anger);
+        for (int i = 0; i < textMask.Length; i++) textMask[i] = (Random.value <= GameManager.Instance.anger && text.text[i] != ' ');
+    }
+
     void Start()
     {
         textMask = new bool[text.text.Length];
         for (int i = 0; i < textMask.Length; i++) textMask[i] = (Random.value <= GameManager.Instance.anger && text.text[i] != ' ');
-        foreach(bool b in textMask) Debug.Log(b);
     }
 
     // Update is called once per frame

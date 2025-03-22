@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] GameObject panel;
+    public GameObject panel;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
-    private Queue<string> sentences; // file d'attente pour stocker les phrases du dialogue
+    private Story story;
     public static DialogueManager instance; // instance statique pour accéder au DialogueManager depuis d'autres scripts
 
     // afficher un avertissement si il y a déjà une instance de DialogueManager sur la scène
@@ -20,53 +20,52 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("il n'y a plus de DialogueManager dans la scène");
             return;
         }
-        instance = this; 
-        sentences = new Queue<string>();
+        instance = this;
     }
 
     // méthode qui démarre un dialogue
     public void StartDialogue(Dialogue dialogue) 
     {
          panel.SetActive(true);
-         nameText.text = dialogue.name; // insérer le nom dans la case nom
-         sentences.Clear(); // effacer les anciennes phrases de la liste d'attente
-         //foreach (string sentence in dialogue.sentences) 
-         //{
-            sentences.Enqueue(dialogue.sentences); // Enqueue envoie des elt dans la file d'attente
-         //}
+         nameText.text = dialogue.name;
+         story = dialogue.story; 
          DisplayNextSentence();
     }
 
-    void DisplayNextSentence() 
+    void DisplayNextSentence()
     {
-        if(sentences.Count == 0) 
+        dialogueText.text = story.GetCurrentNode().getText(); 
+        if (story.GetCurrentNode().GetNextNodes().Count == 0) 
         {
             EndDialogue();
             return;
         }
-        string sentence = sentences.Dequeue(); // Dequeue récupère le prochaine elt de la liste d'attente
-        dialogueText.text = sentence;
     }
 
     void EndDialogue() 
     {
         Debug.Log("Fin du dialogue"); 
-        panel.SetActive(false);
         StartCoroutine(DialogueScripter.Instance.IsReturning());
     }
 
     public void LeftDialogAction(InputAction.CallbackContext context)
     {
+        if (context.phase != InputActionPhase.Canceled) return;
+        story.SetNextNode(story.GetCurrentNode().GetTitle()+"-good");
         DisplayNextSentence();
     }
 
     // Afficher et choisir les 3 propositions (boutons QSD)
     public void RightDialogAction(InputAction.CallbackContext context)
     {
+        if (context.phase != InputActionPhase.Canceled) return;
+        story.SetNextNode(story.GetCurrentNode().GetTitle()+"-bad");
         DisplayNextSentence();
     }
     public void MiddleDialogAction(InputAction.CallbackContext context)
     {
+        if (context.phase != InputActionPhase.Canceled) return;
+        story.SetNextNode(story.GetCurrentNode().GetTitle()+"-awful");
         DisplayNextSentence(); 
     }
 

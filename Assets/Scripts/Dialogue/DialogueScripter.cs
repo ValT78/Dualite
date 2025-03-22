@@ -10,13 +10,12 @@ public class DialogueScripter    : MonoBehaviour
 
     public Dialogue dialogue;
     public float speed;
-    public GameObject npcPrefab; 
     public GameObject npcObject;
-    private bool facingRight = true;
     public List<Sprite> allSprites;
-    [SerializeField] SpriteRenderer spriteRenderer;
 
+    [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Story story; 
+
     [SerializeField] TextMeshProUGUI proposion1;
     [SerializeField] TextMeshProUGUI proposion2;
     [SerializeField] TextMeshProUGUI proposion3;
@@ -31,7 +30,6 @@ public class DialogueScripter    : MonoBehaviour
     void Start()
     {
         ResetSprite();
-
     }
 
     private string GetNameFromNode(StoryNode node)
@@ -48,14 +46,6 @@ public class DialogueScripter    : MonoBehaviour
         proposion1.text = nexts[0].display;
         proposion2.text = nexts[1].display;
         proposion3.text = nexts[2].display;
-    }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            TriggerDialogue();
-        }
     }
 
     // changer l'orientation du personnage
@@ -109,8 +99,9 @@ public class DialogueScripter    : MonoBehaviour
         story.SetNextNode("boss01");
         StoryNode node = story.GetCurrentNode();
         string name = GetNameFromNode(node);
-        dialogue = new Dialogue(name, node.getText());
+        dialogue = new Dialogue(name, story);
         SetOptions(node);
+        DialogueManager.instance.panel.SetActive(false);
 
         npcObject.transform.localPosition = new Vector3 (0f, 0f, 0f); 
         spriteRenderer.flipX = false;
