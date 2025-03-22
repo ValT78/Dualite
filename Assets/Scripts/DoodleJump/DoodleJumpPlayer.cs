@@ -79,6 +79,10 @@ public class DoodleJumpPlayer : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
         }
+        else if (collision.gameObject.TryGetComponent(out Creature creature))
+        {
+            Die();
+        }
     }
 
     void Die()

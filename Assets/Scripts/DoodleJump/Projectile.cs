@@ -12,11 +12,12 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.up * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * Vector3.up;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.name);
         if (collision.gameObject.TryGetComponent(out Creature creature))
         {
             creature.Die();
