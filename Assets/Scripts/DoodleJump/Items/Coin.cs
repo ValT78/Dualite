@@ -32,7 +32,13 @@ public class Coin : MonoBehaviour
         {
             totalScore += score;
             coinCount++;
-            SoundManager.PlaySound(SoundType.Coin, 1);
+            if (isSuperCoin)
+            {
+                SoundManager.PlaySound(SoundType.SuperCoin, 1);
+            } else
+            {
+                SoundManager.PlaySound(SoundType.Coin, 1);
+            }
 
             // Afficher le score toutes les 5 pièces collectées
             if (coinCount % 5 == 0)
