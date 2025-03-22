@@ -2099,6 +2099,7 @@ MonoBehaviour:
   coinManager: {fileID: 7948826416584023776}
   player: {fileID: 4035574558014607816}
   platformContainer: {fileID: 2498147916557495632}
+  playerCamera: {fileID: 8683033840871193181}
 --- !u!114 &7948826416584023776
 MonoBehaviour:
   m_ObjectHideFlags: 0
