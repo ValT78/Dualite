@@ -193,6 +193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoodlePlatform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4332828479112249728, guid: f2d7b595c525aa64489471fc5cd246b1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4859934637995064276, guid: f2d7b595c525aa64489471fc5cd246b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.613216
@@ -287,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1657017144}
   - component: {fileID: 1657017145}
+  - component: {fileID: 1657017146}
   m_Layer: 0
   m_Name: DoodleJumpGame
   m_TagString: Untagged
@@ -310,6 +315,7 @@ Transform:
   - {fileID: 1926168103}
   - {fileID: 1710904905}
   - {fileID: 1646280118}
+  - {fileID: 2104211906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1657017145
@@ -324,13 +330,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbea766e79762404c9d69891723e0cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 3686718948679928424, guid: f2d7b595c525aa64489471fc5cd246b1, type: 3}
-  platformSpacing: 2.5
-  minX: -8
-  maxX: 4
-  maxPlatforms: 10
+  basicPlatformPrefab: {fileID: 3686718948679928424, guid: f2d7b595c525aa64489471fc5cd246b1, type: 3}
+  breakablePlatformPrefab: {fileID: 2026977526885044576, guid: b7b330d63ea7d65429a02534c06d2bf8, type: 3}
+  movingPlatformPrefab: {fileID: 2818943834727197479, guid: ef582e6a8104ce04e91cf6e6e94ceffd, type: 3}
+  coinPrefab: {fileID: 7933471424260867730, guid: 7f1648e3de68c6d48bdcdd9c5ebde490, type: 3}
+  segments:
+  - name: start
+    segmentHeight: 30
+    minSpacing: 0.2
+    maxSpacing: 0.8
+    breakableChance: 0
+    movingChance: 0
+  - name: break
+    segmentHeight: 30
+    minSpacing: 0.5
+    maxSpacing: 1
+    breakableChance: 0.5
+    movingChance: 0
+  - name: space
+    segmentHeight: 30
+    minSpacing: 2
+    maxSpacing: 4
+    breakableChance: 0
+    movingChance: 0.1
+  - name: move
+    segmentHeight: 30
+    minSpacing: 1
+    maxSpacing: 2
+    breakableChance: 0
+    movingChance: 0.7
+  - name: move2
+    segmentHeight: 30
+    minSpacing: 0.2
+    maxSpacing: 2.5
+    breakableChance: 0
+    movingChance: 0.7
+  coinTrailChance: 0.05
+  coinManager: {fileID: 1657017146}
   player: {fileID: 1710904905}
   platformContainer: {fileID: 1646280118}
+--- !u!114 &1657017146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657017143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fbc19c9712131d418aa2d6dfc47595a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 7933471424260867730, guid: 7f1648e3de68c6d48bdcdd9c5ebde490, type: 3}
+  coinContainer: {fileID: 2104211906}
+  coinSpacing: 1
 --- !u!1 &1710904904
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +509,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -466,7 +519,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &1710904908
 Rigidbody2D:
@@ -509,10 +562,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 10
   moveSpeed: 5
-  deathHeightOffset: -10
-  deathJumpForce: 15
-  deathSideForce: 10
-  deathTorque: 200
+  deathHeightOffset: -8
+  deathJumpForce: 20
+  deathSideForce: 0
+  deathTorque: 400
   timeBeforeDestroy: 2
   rb: {fileID: 1710904908}
   col: {fileID: 1710904907}
@@ -689,8 +742,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41494eb3f62c2ae4c924692988cd3c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followOffset: 2
+  followOffset: 0
   autoScrollSpeed: 1
+  autoScrollRetardHeight: 2
   player: {fileID: 1710904905}
 --- !u!1 &2008849296
 GameObject:
@@ -820,6 +874,37 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &2104211905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104211906}
+  m_Layer: 0
+  m_Name: CoinContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2104211906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104211905}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0981205, y: -0.060682714, z: 0.050206263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1657017144}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2118740253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4859934637995064276, guid: f2d7b595c525aa64489471fc5cd246b1, type: 3}

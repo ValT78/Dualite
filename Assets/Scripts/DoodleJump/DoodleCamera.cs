@@ -3,26 +3,31 @@ using UnityEngine;
 public class DoodleCamera : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float followOffset = 3f; // Distance au-dessus du joueur
-    [SerializeField] private float autoScrollSpeed = 1.5f; // Vitesse de montée automatique
+    [SerializeField] private float followOffset; // Distance au-dessus du joueur
+    [SerializeField] private float autoScrollSpeed; // Vitesse de montée automatique
+    [SerializeField] private float autoScrollRetardHeight;
 
     [Header("Components")]
     [SerializeField] private Transform player; // Référence au joueur
 
 
-    private float lowestY; // Altitude minimale de la caméra
+    private float autoScrollY; // Altitude minimale de la caméra
+    private float playerMaxY;
 
     void Start()
     {
-        lowestY = transform.position.y;
+        autoScrollY = -2;
     }
 
     void Update()
     {
-        if (player != null)
+        autoScrollY += autoScrollSpeed * Time.deltaTime;
+        if (player)
         {
-            float targetY = Mathf.Max(lowestY + autoScrollSpeed * Time.time, player.position.y + followOffset);
-            transform.position = new Vector3(transform.position.x, targetY, transform.position.z);
+            playerMaxY = Mathf.Max(playerMaxY, player.position.y);
+            if(autoScrollY < playerMaxY - autoScrollRetardHeight) autoScrollY = playerMaxY - autoScrollRetardHeight;
+
+            transform.position = new Vector3(transform.position.x, Mathf.Max(playerMaxY, autoScrollY) + followOffset, transform.position.z);
         }   
     }
 }
