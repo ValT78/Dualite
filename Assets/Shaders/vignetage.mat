@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0
+    - _Alpha: 0.06285714
     - _VignetteIntensity: 4
     - _VignettePower: 3
     - _borderStrength: 0

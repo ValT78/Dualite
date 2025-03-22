@@ -2,12 +2,12 @@
 public class Dialogue
 {
     public string name;
-    public string sentences;
+    public Story story;
 
-    public Dialogue(string _name, string _sentences)
+    public Dialogue(string _name, Story _story)
     {
         name = _name;
-        sentences = _sentences;
+        story = _story;
     }
 }
 
