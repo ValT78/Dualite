@@ -72,11 +72,12 @@ public class DoodleJumpPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out DoodlePlatform platform) && !platform.GetIsBreakable())
+        if (collision.gameObject.TryGetComponent(out DoodlePlatform _))
         {
             if (rb.linearVelocity.y <= 0.0001)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                SoundManager.PlaySound(SoundType.Jump, 1);
             }
         }
         else if (collision.gameObject.TryGetComponent(out Creature creature))
@@ -93,5 +94,6 @@ public class DoodleJumpPlayer : MonoBehaviour
         rb.angularVelocity = deathTorque;
         col.enabled = false;
         Destroy(gameObject, timeBeforeDestroy);
+        SoundManager.PlaySound(SoundType.Death, 1);
     }
 }
