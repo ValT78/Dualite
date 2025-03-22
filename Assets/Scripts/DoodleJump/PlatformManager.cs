@@ -10,6 +10,7 @@ public class PlatformSegment
     public float maxSpacing;
     public float breakableChance;
     public float movingChance;
+    public float monsterChance; // Probabilité qu'un monstre apparaisse sur une plateforme
 }
 
 public class PlatformManager : MonoBehaviour
@@ -24,13 +25,17 @@ public class PlatformManager : MonoBehaviour
     [SerializeField] private GameObject movingPlatformPrefab;
     [SerializeField] private GameObject coinPrefab;
 
+    [Header("Monster Prefabs")]
+    [SerializeField] private GameObject staticMonsterPrefab;
+    [SerializeField] private GameObject jumpingMonsterPrefab;
+    [SerializeField] private GameObject flyingMonsterPrefab;
+
     [Header("Segments Settings")]
     [SerializeField] private List<PlatformSegment> segments;
     private PlatformSegment currentSegment;
 
-    [Header("CoinSettings")]
+    [Header("Coin Settings")]
     [SerializeField] private float coinTrailChance;
-
 
     [Header("References")]
     [SerializeField] private CoinManager coinManager;
@@ -45,6 +50,11 @@ public class PlatformManager : MonoBehaviour
     {
         if (Instance) Destroy(gameObject);
         Instance = this;
+
+        foreach(Transform child in platformContainer)
+        {
+            activePlatforms.Enqueue(child.gameObject);
+        }
     }
 
     void Start()
@@ -99,6 +109,34 @@ public class PlatformManager : MonoBehaviour
         {
             coinManager.SpawnCoinTrail(new Vector2(spawnX, spawnY + 0.5f));
         }
+
+        // Générer un monstre sur la plateforme
+        if (Random.value < currentSegment.monsterChance)
+        {
+            SpawnMonster(newPlatform.transform);
+        }
+    }
+
+    private void SpawnMonster(Transform platformTransform)
+    {
+        GameObject monsterPrefab;
+        float rand = Random.value;
+
+        if (rand < 0.33f)
+        {
+            monsterPrefab = staticMonsterPrefab;
+        }
+        else if (rand < 0.66f)
+        {
+            monsterPrefab = jumpingMonsterPrefab;
+        }
+        else
+        {
+            monsterPrefab = flyingMonsterPrefab;
+        }
+
+        Vector3 spawnPosition = platformTransform.position + new Vector3(0, 0.5f, 0);
+        Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, platformContainer);
     }
 
     private void ChooseNextSegment()
@@ -111,7 +149,7 @@ public class PlatformManager : MonoBehaviour
     {
         float camBottom = Camera.main.transform.position.y - Camera.main.orthographicSize;
 
-        while (activePlatforms.Count > 0 && activePlatforms.Peek().transform.position.y < camBottom)
+        while (activePlatforms.Count > 0 && activePlatforms.Peek() && activePlatforms.Peek().transform.position.y < camBottom)
         {
             Destroy(activePlatforms.Dequeue());
         }
