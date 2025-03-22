@@ -1,23 +1,56 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class PlatformSegment
+{
+    public string name;
+    public float segmentHeight;
+    public float minSpacing;
+    public float maxSpacing;
+    public float breakableChance;
+    public float movingChance;
+}
+
 public class PlatformManager : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] private GameObject platformPrefab;
-    [SerializeField] private float platformSpacing = 2.5f;
-    [SerializeField] private float minX = -4f, maxX = 4f;
-    [SerializeField] private int maxPlatforms = 10;
+    public static PlatformManager Instance;
+
+    public static float screenWidth = 2.5f;
+
+    [Header("Prefab")]
+    [SerializeField] private GameObject basicPlatformPrefab;
+    [SerializeField] private GameObject breakablePlatformPrefab;
+    [SerializeField] private GameObject movingPlatformPrefab;
+    [SerializeField] private GameObject coinPrefab;
+
+    [Header("Segments Settings")]
+    [SerializeField] private List<PlatformSegment> segments;
+    private PlatformSegment currentSegment;
+
+    [Header("CoinSettings")]
+    [SerializeField] private float coinTrailChance;
+
 
     [Header("References")]
+    [SerializeField] private CoinManager coinManager;
     [SerializeField] private Transform player;
     [SerializeField] private Transform platformContainer;
 
     private float highestPlatformY;
+    private float currentSegmentTop;
     private Queue<GameObject> activePlatforms = new Queue<GameObject>();
+
+    private void Awake()
+    {
+        if (Instance) Destroy(gameObject);
+        Instance = this;
+    }
 
     void Start()
     {
+        currentSegment = segments[0]; // Premier tronçon fixe au départ
+        currentSegmentTop = currentSegment.segmentHeight;
         highestPlatformY = GetHighestPlatformY();
     }
 
@@ -25,24 +58,53 @@ public class PlatformManager : MonoBehaviour
     {
         float camTop = Camera.main.transform.position.y + Camera.main.orthographicSize;
 
-        // Générer de nouvelles plateformes
-        while (highestPlatformY < camTop + platformSpacing)
+        if (highestPlatformY < camTop + currentSegment.maxSpacing)
         {
             SpawnPlatform();
         }
 
-        // Supprimer les plateformes hors écran
+        if (highestPlatformY >= currentSegmentTop)
+        {
+            ChooseNextSegment();
+        }
+
         CleanupPlatforms();
     }
 
     private void SpawnPlatform()
     {
-        float spawnY = highestPlatformY + platformSpacing;
-        float spawnX = Random.Range(minX, maxX);
+        float spawnY = highestPlatformY + Random.Range(currentSegment.minSpacing, currentSegment.maxSpacing);
+        float spawnX = Random.Range(-screenWidth, screenWidth);
 
-        GameObject newPlatform = Instantiate(platformPrefab, new Vector3(spawnX, spawnY, 0), Quaternion.identity, platformContainer);
+        GameObject newPlatform;
+        float rand = Random.value;
+        if (rand < currentSegment.breakableChance)
+        {
+            newPlatform = Instantiate(breakablePlatformPrefab, new Vector3(spawnX, spawnY, 0), Quaternion.identity, platformContainer);
+        }
+        else if (rand < currentSegment.breakableChance + currentSegment.movingChance)
+        {
+            newPlatform = Instantiate(movingPlatformPrefab, new Vector3(spawnX, spawnY, 0), Quaternion.identity, platformContainer);
+        }
+        else
+        {
+            newPlatform = Instantiate(basicPlatformPrefab, new Vector3(spawnX, spawnY, 0), Quaternion.identity, platformContainer);
+        }
+
         activePlatforms.Enqueue(newPlatform);
         highestPlatformY = spawnY;
+
+        // Générer une traînée de pièces aléatoirement
+        if (Random.value < coinTrailChance)
+        {
+            coinManager.SpawnCoinTrail(new Vector2(spawnX, spawnY + 0.5f));
+        }
+    }
+
+    private void ChooseNextSegment()
+    {
+        currentSegment = segments[Random.Range(1, segments.Count)]; // Choix aléatoire sauf le premier
+        currentSegmentTop += currentSegment.segmentHeight;
     }
 
     private void CleanupPlatforms()

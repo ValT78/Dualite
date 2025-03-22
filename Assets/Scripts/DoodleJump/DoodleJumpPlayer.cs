@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 public class DoodleJumpPlayer : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private float jumpForce = 10f;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float deathHeightOffset = -5f; // Distance sous la caméra avant de mourir
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float deathHeightOffset; // Distance sous la caméra avant de mourir
 
     [Header("Animation")]
-    [SerializeField] private float deathJumpForce = 15f; // Saut au moment de la mort
-    [SerializeField] private float deathSideForce = 10f;
-    [SerializeField] private float deathTorque = 200f; // Rotation au moment de la mort
-    [SerializeField] private float timeBeforeDestroy = 2f;
+    [SerializeField] private float deathJumpForce; // Saut au moment de la mort
+    [SerializeField] private float deathSideForce;
+    [SerializeField] private float deathTorque; // Rotation au moment de la mort
+    [SerializeField] private float timeBeforeDestroy;
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
@@ -20,7 +20,7 @@ public class DoodleJumpPlayer : MonoBehaviour
     [SerializeField] private Camera playerCamera;
 
     private Vector2 moveInput;
-    private bool isDead = false;
+    private bool isDead;
 
     void Update()
     {
@@ -29,8 +29,8 @@ public class DoodleJumpPlayer : MonoBehaviour
         rb.linearVelocityX = moveInput.x * moveSpeed;
 
         // Effet wrap (réapparaît de l'autre côté de l'écran)
-        if (transform.position.x < -5f) transform.position = new Vector2(5f, transform.position.y);
-        if (transform.position.x > 5f) transform.position = new Vector2(-5f, transform.position.y);
+        if (transform.position.x < -PlatformManager.screenWidth) transform.position = new Vector2(PlatformManager.screenWidth, transform.position.y);
+        if (transform.position.x > PlatformManager.screenWidth) transform.position = new Vector2(-PlatformManager.screenWidth, transform.position.y);
 
         // Vérifier si le joueur tombe trop bas
         if (playerCamera.transform.position.y + deathHeightOffset > transform.position.y)
@@ -46,7 +46,7 @@ public class DoodleJumpPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out OneWayPlatform _))
+        if (collision.gameObject.TryGetComponent(out DoodlePlatform platform) && !platform.GetIsBreakable())
         {
             // Saut uniquement si le joueur tombe (léger offset car la velocité est parfois positive
             if (rb.linearVelocityY <= 0.0001)
@@ -60,6 +60,7 @@ public class DoodleJumpPlayer : MonoBehaviour
     {
         isDead = true;
         rb.linearVelocity = new Vector2(Random.Range(-deathSideForce, deathSideForce), deathJumpForce);
+        rb.constraints = RigidbodyConstraints2D.None;
         rb.angularVelocity = deathTorque;
         col.enabled = false;
         Destroy(gameObject, timeBeforeDestroy);
