@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Creature : MonoBehaviour
@@ -13,6 +14,10 @@ public class Creature : MonoBehaviour
     public float speed = 2f;
     private float screenWidth;
 
+    [Header("Vibration Settings")]
+    public float vibrationIntensity = 0.1f;
+    public float vibrationSpeed = 3f;
+
     private Vector3 initialPosition;
     private Rigidbody2D rb;
 
@@ -27,23 +32,42 @@ public class Creature : MonoBehaviour
         }
 
         screenWidth = Camera.main.orthographicSize * Camera.main.aspect + 1f; // +1 pour marge de sécurité
+
+        StartCoroutine(ApplyVibration());
     }
 
     void Update()
     {
-        ApplyVibration();
-
         if (behavior == BehaviorType.Flying)
         {
             Fly();
         }
     }
 
-    void ApplyVibration()
+    IEnumerator ApplyVibration()
     {
-        float vibrationX = Mathf.PerlinNoise(Time.time * 3f, 0f) * 0.1f - 0.05f;
-        float vibrationY = Mathf.PerlinNoise(0f, Time.time * 3f) * 0.1f - 0.05f;
-        transform.position = initialPosition + new Vector3(vibrationX, vibrationY, 0);
+        while (true)
+        {
+            float targetX = initialPosition.x + (Mathf.PerlinNoise(Time.time * vibrationSpeed, 0f) - 0.5f) * vibrationIntensity;
+            float targetY = initialPosition.y + (Mathf.PerlinNoise(0f, Time.time * vibrationSpeed) - 0.5f) * vibrationIntensity;
+
+            Vector3 targetPosition = new Vector3(targetX, targetY, initialPosition.z);
+            float duration = 0.1f; // Durée de transition fluide
+            float elapsed = 0f;
+
+            Vector3 startPosition = transform.position;
+
+            while (elapsed < duration)
+            {
+                transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / duration);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = targetPosition;
+
+            yield return new WaitForSeconds(0.05f); // Pause entre les vibrations
+        }
     }
 
     void Jump()

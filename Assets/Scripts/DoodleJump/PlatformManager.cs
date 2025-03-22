@@ -50,6 +50,11 @@ public class PlatformManager : MonoBehaviour
     {
         if (Instance) Destroy(gameObject);
         Instance = this;
+
+        foreach(Transform child in platformContainer)
+        {
+            activePlatforms.Enqueue(child.gameObject);
+        }
     }
 
     void Start()
@@ -131,7 +136,7 @@ public class PlatformManager : MonoBehaviour
         }
 
         Vector3 spawnPosition = platformTransform.position + new Vector3(0, 0.5f, 0);
-        Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, platformTransform);
+        Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, platformContainer);
     }
 
     private void ChooseNextSegment()

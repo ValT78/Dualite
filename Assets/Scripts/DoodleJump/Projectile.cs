@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.name);
         if (collision.gameObject.TryGetComponent(out Creature creature))
         {
             creature.Die();
