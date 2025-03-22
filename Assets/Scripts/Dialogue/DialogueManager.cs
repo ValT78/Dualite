@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
+    [SerializeField] GameObject panel;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
     private Queue<string> sentences; // file d'attente pour stocker les phrases du dialogue
     public static DialogueManager instance; // instance statique pour accéder au DialogueManager depuis d'autres scripts
 
@@ -23,17 +25,22 @@ public class DialogueManager : MonoBehaviour
     }
 
     // méthode qui démarre un dialogue
-    public void StartDialogue(Dialogue dialogue) {
+    public void StartDialogue(Dialogue dialogue) 
+    {
+         panel.SetActive(true);
          nameText.text = dialogue.name; // insérer le nom dans la case nom
          sentences.Clear(); // effacer les anciennes phrases de la liste d'attente
-         foreach (string sentence in dialogue.sentences) {
-            sentences.Enqueue(sentence); // Enqueue envoie des elt dans la file d'attente
-         }
+         //foreach (string sentence in dialogue.sentences) 
+         //{
+            sentences.Enqueue(dialogue.sentences); // Enqueue envoie des elt dans la file d'attente
+         //}
          DisplayNextSentence();
     }
 
-    void DisplayNextSentence() {
-        if(sentences.Count == 0) {
+    void DisplayNextSentence() 
+    {
+        if(sentences.Count == 0) 
+        {
             EndDialogue();
             return;
         }
@@ -41,7 +48,27 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = sentence;
     }
 
-    void EndDialogue() {
-        Debug.Log("Fin du dialogue");
+    void EndDialogue() 
+    {
+        Debug.Log("Fin du dialogue"); 
+        panel.SetActive(false);
+        StartCoroutine(DialogueScripter.Instance.IsReturning());
     }
+
+    public void LeftDialogAction(InputAction.CallbackContext context)
+    {
+        DisplayNextSentence();
+    }
+
+    // Afficher et choisir les 3 propositions (boutons QSD)
+    public void RightDialogAction(InputAction.CallbackContext context)
+    {
+        DisplayNextSentence();
+    }
+    public void MiddleDialogAction(InputAction.CallbackContext context)
+    {
+        DisplayNextSentence(); 
+    }
+
+
 }
