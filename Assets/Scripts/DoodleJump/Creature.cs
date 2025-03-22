@@ -31,7 +31,7 @@ public class Creature : MonoBehaviour
             InvokeRepeating(nameof(Jump), 1f, jumpInterval);
         }
 
-        screenWidth = Camera.main.orthographicSize * Camera.main.aspect + 1f; // +1 pour marge de sécurité
+        screenWidth = PlatformManager.screenWidth + 1f; // +1 pour marge de sécurité
 
         StartCoroutine(ApplyVibration());
     }

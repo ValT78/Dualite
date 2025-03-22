@@ -151,7 +151,7 @@ public class PlatformManager : MonoBehaviour
     {
         float camBottom = playerCamera.transform.position.y - playerCamera.orthographicSize;
 
-        while (activePlatforms.Count > 0 && activePlatforms.Peek() && activePlatforms.Peek().transform.position.y < camBottom)
+        while (activePlatforms.Count > 0 && activePlatforms.Peek().transform.position.y < camBottom)
         {
             Destroy(activePlatforms.Dequeue());
         }

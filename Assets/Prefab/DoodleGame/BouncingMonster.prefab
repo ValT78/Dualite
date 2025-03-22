@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: behavior
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6616206059166147124, guid: a6505dbb106853d4b9664d3731314047, type: 3}
+      propertyPath: jumpForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8800897880379844963, guid: a6505dbb106853d4b9664d3731314047, type: 3}
       propertyPath: m_Color.b
       value: 0.039215684
