@@ -34,6 +34,8 @@ public class Creature : MonoBehaviour
         screenWidth = PlatformManager.screenWidth + 1f; // +1 pour marge de sécurité
 
         StartCoroutine(ApplyVibration());
+
+        SoundManager.PlaySound(SoundType.Mob, 0.7f);
     }
 
     void Update()
@@ -90,5 +92,6 @@ public class Creature : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+        SoundManager.PlaySound(SoundType.Kill, 0.6f);
     }
 }
