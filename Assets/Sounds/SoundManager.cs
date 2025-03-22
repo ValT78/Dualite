@@ -11,6 +11,7 @@ public enum SoundType
     Kill,
     Hit,
     Coin,
+    SuperCoin,
     Spring,
     Pause,
     Resume,
