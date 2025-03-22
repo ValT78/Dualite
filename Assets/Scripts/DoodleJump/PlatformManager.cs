@@ -41,6 +41,7 @@ public class PlatformManager : MonoBehaviour
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private Transform player;
     [SerializeField] private Transform platformContainer;
+    [SerializeField] private Camera playerCamera;
 
     private float highestPlatformY;
     private float currentSegmentTop;
@@ -66,10 +67,11 @@ public class PlatformManager : MonoBehaviour
 
     void Update()
     {
-        float camTop = Camera.main.transform.position.y + Camera.main.orthographicSize;
+        float camTop = playerCamera.transform.position.y + playerCamera.orthographicSize;
 
         if (highestPlatformY < camTop + currentSegment.maxSpacing)
         {
+            print(camTop + currentSegment.maxSpacing);
             SpawnPlatform();
         }
 
@@ -147,7 +149,7 @@ public class PlatformManager : MonoBehaviour
 
     private void CleanupPlatforms()
     {
-        float camBottom = Camera.main.transform.position.y - Camera.main.orthographicSize;
+        float camBottom = playerCamera.transform.position.y - playerCamera.orthographicSize;
 
         while (activePlatforms.Count > 0 && activePlatforms.Peek() && activePlatforms.Peek().transform.position.y < camBottom)
         {
