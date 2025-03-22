@@ -1,17 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class DoodleJumpPlayer : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float deathHeightOffset; // Distance sous la caméra avant de mourir
+    [SerializeField] private float deathHeightOffset;
+    [SerializeField] private float shootCooldown = 0.5f; // Temps entre chaque tir
+
+    [Header("Shooting")]
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform shootPoint; // Position où le projectile apparaît
 
     [Header("Animation")]
-    [SerializeField] private float deathJumpForce; // Saut au moment de la mort
+    [SerializeField] private float deathJumpForce;
     [SerializeField] private float deathSideForce;
-    [SerializeField] private float deathTorque; // Rotation au moment de la mort
+    [SerializeField] private float deathTorque;
     [SerializeField] private float timeBeforeDestroy;
 
     [Header("Components")]
@@ -21,12 +27,13 @@ public class DoodleJumpPlayer : MonoBehaviour
 
     private Vector2 moveInput;
     private bool isDead;
+    private bool canShoot = true;
 
     void Update()
     {
-        if(isDead) return;
+        if (isDead) return;
 
-        rb.linearVelocityX = moveInput.x * moveSpeed;
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
 
         // Effet wrap (réapparaît de l'autre côté de l'écran)
         if (transform.position.x < -PlatformManager.screenWidth) transform.position = new Vector2(PlatformManager.screenWidth, transform.position.y);
@@ -44,14 +51,32 @@ public class DoodleJumpPlayer : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
+    public void OnAttack(InputValue value)
+    {
+        if (canShoot && !isDead)
+        {
+            StartCoroutine(Shoot());
+        }
+    }
+
+    private IEnumerator Shoot()
+    {
+        canShoot = false;
+
+        // Instancier le projectile au-dessus du joueur
+        Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(shootCooldown);
+        canShoot = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out DoodlePlatform platform) && !platform.GetIsBreakable())
         {
-            // Saut uniquement si le joueur tombe (léger offset car la velocité est parfois positive
-            if (rb.linearVelocityY <= 0.0001)
+            if (rb.linearVelocity.y <= 0.0001)
             {
-                rb.linearVelocityY = jumpForce;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             }
         }
     }

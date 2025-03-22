@@ -348,23 +348,29 @@ MonoBehaviour:
     breakableChance: 0.5
     movingChance: 0
   - name: space
-    segmentHeight: 30
+    segmentHeight: 15
     minSpacing: 2
     maxSpacing: 4
     breakableChance: 0
     movingChance: 0.1
   - name: move
-    segmentHeight: 30
+    segmentHeight: 15
     minSpacing: 1
     maxSpacing: 2
     breakableChance: 0
     movingChance: 0.7
   - name: move2
-    segmentHeight: 30
+    segmentHeight: 15
     minSpacing: 0.2
     maxSpacing: 2.5
     breakableChance: 0
     movingChance: 0.7
+  - name: random
+    segmentHeight: 20
+    minSpacing: 0.1
+    maxSpacing: 1
+    breakableChance: 0.4
+    movingChance: 0.3
   coinTrailChance: 0.05
   coinManager: {fileID: 1657017146}
   player: {fileID: 1710904905}

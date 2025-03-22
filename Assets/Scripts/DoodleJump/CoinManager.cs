@@ -11,7 +11,7 @@ public class CoinManager : MonoBehaviour
     {
         int patternType = Random.Range(0, 3); // 0: Vertical, 1: Horizontal, 2: Arc
         int coinCount = Random.Range(3, 7);
-        float angle = Random.Range(-15f, 15f) * Mathf.Deg2Rad;
+        float angle = Random.Range(-35f, 35f) * Mathf.Deg2Rad;
 
         switch (patternType)
         {
