@@ -48,7 +48,7 @@ public class DialogueTrigger : MonoBehaviour
         TriggerDialogue(); // lancer le dialogue
         Flip(); // changer l'orientation du NPC, faire demi-tour
 
-        if (ncpObject.position = 0)
+        if (npcObject.transform.position.x == 0f)
         {
             Destroy(gameObject);
             // lancer le prochain NPC
