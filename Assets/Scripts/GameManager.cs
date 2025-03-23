@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetScene()
     {
-        SceneManager.LoadScene("menu");
         speed.SetFloat("_Alpha", 0f);
         blood.SetFloat("_Alpha", 0f);
+        SceneManager.LoadScene("menu");
     }
 }
