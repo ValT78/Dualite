@@ -40,6 +40,11 @@ public class Coin : MonoBehaviour
                 SoundManager.PlaySound(SoundType.Coin, 0.2f);
             }
 
+            if (GameManager.Instance.anger < 1)
+            {
+                GameManager.Instance.anger -= score * 0.1f;
+            }
+
             // Afficher le score toutes les 5 pièces collectées
             if (coinCount % 5 == 0)
             {
