@@ -52,6 +52,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (context.phase != InputActionPhase.Canceled) return;
         story.SetNextNode(story.GetCurrentNode().GetTitle()+"-good");
+        SoundManager.PlaySound(SoundType.Button, 0.4f);
         DisplayNextSentence();
     }
 
@@ -60,12 +61,14 @@ public class DialogueManager : MonoBehaviour
     {
         if (context.phase != InputActionPhase.Canceled) return;
         story.SetNextNode(story.GetCurrentNode().GetTitle()+"-bad");
+        SoundManager.PlaySound(SoundType.Button, 0.4f);
         DisplayNextSentence();
     }
     public void MiddleDialogAction(InputAction.CallbackContext context)
     {
         if (context.phase != InputActionPhase.Canceled) return;
         story.SetNextNode(story.GetCurrentNode().GetTitle()+"-awful");
+        SoundManager.PlaySound(SoundType.Button, 0.4f);
         DisplayNextSentence(); 
     }
 
