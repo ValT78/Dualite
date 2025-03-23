@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 59646b0b17f1add4d85d74e1fd336c3f
+guid: 5f57fc25416f3754ba3498cd20051320
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 174248552334642026
-    second: fond_ciel_0
+      213: -7585009627398372457
+    second: fond_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fond_ciel_0
+      name: fond_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1792
+        width: 4032
+        height: 3024
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a6b4888922e0b6200800000000000000
-      internalID: 174248552334642026
+      spriteID: 79380055ee1acb690800000000000000
+      internalID: -7585009627398372457
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4db9e53e328990048a29b5544a7573f6
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fond_ciel_0: 174248552334642026
+      fond_0: -7585009627398372457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
