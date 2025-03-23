@@ -33,7 +33,7 @@ public class Creature : MonoBehaviour
 
 /*        StartCoroutine(ApplyVibration());
 */
-        SoundManager.PlaySound(SoundType.Mob, 0.7f);
+        SoundManager.PlaySound(SoundType.Mob, 0.3f);
     }
 
     void Update()
@@ -95,7 +95,7 @@ public class Creature : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
-        SoundManager.PlaySound(SoundType.Kill, 0.6f);
+        SoundManager.PlaySound(SoundType.Kill, 0.3f);
     }
 
     public void OnTriggerEnter2D(Collider2D other)

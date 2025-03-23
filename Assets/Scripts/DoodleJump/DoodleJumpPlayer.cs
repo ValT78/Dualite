@@ -56,6 +56,17 @@ public class DoodleJumpPlayer : MonoBehaviour
         if (canShoot && !isDead)
         {
             StartCoroutine(Shoot());
+            float randomShootSound = Random.Range(0.5f, 2.0f);
+            if (randomShootSound > 1.5)
+            {
+                SoundManager.PlaySound(SoundType.Shoot1, 1);
+            } else if (randomShootSound < 1.0)
+            {
+                SoundManager.PlaySound(SoundType.Shoot2, 1);
+            } else
+            {
+                SoundManager.PlaySound(SoundType.Shoot3, 1);
+            }
         }
     }
 
@@ -77,7 +88,7 @@ public class DoodleJumpPlayer : MonoBehaviour
             if (rb.linearVelocity.y <= 0.0001)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                SoundManager.PlaySound(SoundType.Jump, 1);
+                SoundManager.PlaySound(SoundType.Jump, 0.3f);
             }
         }
         
