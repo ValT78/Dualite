@@ -90,6 +90,7 @@ public class DoodleJumpPlayer : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 SoundManager.PlaySound(SoundType.Jump, 0.3f);
+                SoundManager.PlaySound(SoundType.PlatformBreak, 0.3f);
             }
         }
         
