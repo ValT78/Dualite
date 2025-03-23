@@ -8,7 +8,7 @@ public class DoodleJumpPlayer : MonoBehaviour
     [SerializeField] private float jumpForce;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float deathHeightOffset;
-    [SerializeField] private float shootCooldown = 0.1f; // Temps entre chaque tir
+    [SerializeField] private float shootCooldown = 0.5f; // Temps entre chaque tir
 
     [Header("Shooting")]
     [SerializeField] private GameObject projectilePrefab;

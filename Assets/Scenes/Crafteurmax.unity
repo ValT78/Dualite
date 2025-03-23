@@ -484,6 +484,10 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4667807407416943898, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: shootCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4973887412070351816, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
       propertyPath: m_TagString
       value: Untagged
