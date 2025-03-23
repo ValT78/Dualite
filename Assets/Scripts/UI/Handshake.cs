@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Handshake : MonoBehaviour
 {
-    [SerializeField] private float angleMin = -10f; // Angle minimum d'oscillation
-    [SerializeField] private float angleMax = 10f;  // Angle maximum d'oscillation
+    [SerializeField] private float angleMin = -5f; // Angle minimum d'oscillation
+    [SerializeField] private float angleMax = 5f;  // Angle maximum d'oscillation
 
     private float timeOffset;
 
