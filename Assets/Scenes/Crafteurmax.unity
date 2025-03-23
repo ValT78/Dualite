@@ -725,6 +725,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7070865671602010463, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 2100000, guid: 803606ec6410832439556109229021fd, type: 2}
+    - target: {fileID: 7070865671602010463, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 2100000, guid: 3107fc045f3d1fc4a8ff45941bf305be, type: 2}
     - target: {fileID: 7690044492315295887, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: npcObject
       value: 
