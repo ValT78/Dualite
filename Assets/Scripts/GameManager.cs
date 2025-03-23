@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,4 +14,8 @@ public class GameManager : MonoBehaviour
         if (Instance == null) Instance = this;
     }
 
+    private void Update()
+    {
+        if (anger > 1f) SceneManager.LoadScene("menu");
+    }
 }
