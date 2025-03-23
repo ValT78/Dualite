@@ -186,58 +186,58 @@ Oh, bien pensé ! Merci ma puce !
 :: michel01 [rat] {"position":"500,600","size":"100,100"}
 Hey, t’aurais pas un stylo s’teuplaît ? Je dois prendre des notes dans moins d’1 minute...
 
-[[Bien sûr, j’en ai un sur mon bureau, sers-toi !->rat01-good]]
-[[Bien sûr, et tu veux un café avec ? Vas-y sers-toi !->rat01-bad]]
-[[Bien sûr, ça fera 100 euros. Va voir ailleurs !->rat01-awful]]
+[[Bien sûr, j’en ai un sur mon bureau, sers-toi !->michel01-good]]
+[[Bien sûr, et tu veux un café avec ? Vas-y sers-toi !->michel01-bad]]
+[[Bien sûr, ça fera 100 euros. Va voir ailleurs !->michel01-awful]]
 
 
 :: michel02 [rat] {"position":"900,600","size":"100,100"}
 Hey, j’te dérange une fois de plus, t’aurais pas 1 euro pour que j’me prenne une boisson stp ? Promis je te rembourse demain !
 
-[[Mais bien sûr, tiens, 1 euro !->rat02-good]]
-[[Mais bien sûr, tiens, rien du tout !->rat02-bad]]
-[[Mais bien sûr, tiens, un doigt !->rat02-awful]]
+[[Mais bien sûr, tiens, 1 euro !->michel02-good]]
+[[Mais bien sûr, tiens, rien du tout !->michel02-bad]]
+[[Mais bien sûr, tiens, un doigt !->michel02-awful]]
 
 
 :: michel03 [rat] {"position":"1300,600","size":"100,100"}
 Hey, t’aurais pas de l’essuie-tout ? J’ai un peu renversé mon café...
 
-[[Bien sûr, juste là, sers-toi !->rat03-good]]
-[[Oui, dans la salle de pause, sers-toi !->rat03-bad]]
-[[Skill issue, t’avais qu’à pas le renverser.->rat03-awful]]
+[[Bien sûr, juste là, sers-toi !->michel03-good]]
+[[Oui, dans la salle de pause, sers-toi !->michel03-bad]]
+[[Skill issue, t’avais qu’à pas le renverser.->michel03-awful]]
 
 
-:: rat01-awful [rat awful] {"position":"625,725","size":"100,100"}
+:: michel01-awful [rat awful] {"position":"625,725","size":"100,100"}
 Sale radine !
 
 
-:: rat01-bad [rat bad] {"position":"500,725","size":"100,100"}
+:: michel01-bad [rat bad] {"position":"500,725","size":"100,100"}
 Hey, c’est juste un stylo, franchement...
 
 
-:: rat01-good [rat good] {"position":"375,725","size":"100,100"}
+:: michel01-good [rat good] {"position":"375,725","size":"100,100"}
 Merci, tu me sauves !
 
 
-:: rat02-awful [rat awful] {"position":"1025,725","size":"100,100"}
+:: michel02-awful [rat awful] {"position":"1025,725","size":"100,100"}
 Mais va te faire foutre !
 
 
-:: rat02-bad [rat bad] {"position":"900,725","size":"100,100"}
+:: michel02-bad [rat bad] {"position":"900,725","size":"100,100"}
 Radine !
 
 
-:: rat02-good [rat good] {"position":"775,725","size":"100,100"}
+:: michel02-good [rat good] {"position":"775,725","size":"100,100"}
 Merci beaucoup, promis je te rembourse demain !
 
 
-:: rat03-awful [rat awful] {"position":"1425,725","size":"100,100"}
+:: michel03-awful [rat awful] {"position":"1425,725","size":"100,100"}
 Va crever sale rat.
 
 
-:: rat03-bad [rat bad] {"position":"1300,725","size":"100,100"}
+:: michel03-bad [rat bad] {"position":"1300,725","size":"100,100"}
 Tsk, c’est quand même plus rapide de prendre le tien, radine.
 
 
-:: rat03-good [rat good] {"position":"1175,725","size":"100,100"}
+:: michel03-good [rat good] {"position":"1175,725","size":"100,100"}
 Merci beaucoup !
