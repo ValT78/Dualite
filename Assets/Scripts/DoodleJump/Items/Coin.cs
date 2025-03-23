@@ -60,12 +60,9 @@ public class Coin : MonoBehaviour
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
 
         // 1. Scale Bounce
-        transform.localScale *= bounceScale;
-        yield return new WaitForSeconds(0.05f);
-        transform.localScale /= bounceScale;
 
         // 2. Flash Blanc
-        sr.color = Color.white;
+        sr.color = Color.blue;
         yield return new WaitForSeconds(flashDuration);
         sr.color = Color.yellow; // Remettre à sa couleur d'origine
 
@@ -74,8 +71,10 @@ public class Coin : MonoBehaviour
         while (elapsedTime < rotationDuration)
         {
             float t = elapsedTime / rotationDuration;
-            float scaleX = Mathf.Lerp(1, 0, t);
-            transform.localScale = new Vector3(scaleX, 1, 1);
+            float rotationY = Mathf.Lerp(0, 360, t);
+            float scale = Mathf.Lerp(0.1f, 1, t);
+            transform.eulerAngles = new Vector3(0f, rotationY, 0f);
+            transform.localScale = new Vector3(scale, scale, scale);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
