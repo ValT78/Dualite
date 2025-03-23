@@ -53,6 +53,7 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         coroutineTimer = null;
+        GameManager.Instance.anger += 0.17f;
         EndDialogue();
     }
 
@@ -79,8 +80,12 @@ public class DialogueManager : MonoBehaviour
     {
         switch (index) {
             case 1: return "-good";
-            case 2: return "-bad";
-            case 3: return "-awful";
+            case 2:
+                GameManager.Instance.anger += 0.08f;
+                return "-bad";
+            case 3:
+                GameManager.Instance.anger += 0.17f;
+                return "-awful";
         }
         return "";
     }

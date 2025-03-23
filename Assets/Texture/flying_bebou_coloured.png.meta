@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      flying_bebou_coloured_0: 5849484488697544499
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crayons_0: -8663604690125622890
+      crayons_1: -5278963325595919193
+      crayons_2: 3748709599593682179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
