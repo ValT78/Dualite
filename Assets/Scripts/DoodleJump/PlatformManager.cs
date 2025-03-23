@@ -45,7 +45,7 @@ public class PlatformManager : MonoBehaviour
 
     private float highestPlatformY;
     private float currentSegmentTop;
-    private Queue<GameObject> activePlatforms = new Queue<GameObject>();
+    public static Queue<GameObject> activePlatforms = new Queue<GameObject>();
 
     private void Awake()
     {
@@ -138,7 +138,7 @@ public class PlatformManager : MonoBehaviour
         }
 
         Vector3 spawnPosition = platformTransform.position + new Vector3(0, 0.5f, 0);
-        Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, platformContainer);
+        activePlatforms.Enqueue(Instantiate(monsterPrefab, spawnPosition, Quaternion.identity, platformContainer));
     }
 
     private void ChooseNextSegment()
@@ -151,9 +151,10 @@ public class PlatformManager : MonoBehaviour
     {
         float camBottom = playerCamera.transform.position.y - playerCamera.orthographicSize;
 
-        while (activePlatforms.Count > 0 && activePlatforms.Peek().transform.position.y < camBottom)
+        while (activePlatforms.Count > 0 && (activePlatforms.Peek() == null || activePlatforms.Peek().transform.position.y < camBottom))
         {
-            Destroy(activePlatforms.Dequeue());
+            if (activePlatforms.Peek()) Destroy(activePlatforms.Dequeue());
+            else activePlatforms.Dequeue();
         }
     }
 
