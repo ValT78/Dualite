@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -39,12 +40,28 @@ public class DialogueScripter    : MonoBehaviour
         return "No Name";
     }
 
+    // Création d'une liste avec les 3 propositions (good,bad,awful) 
+    // dans laquelle on va piocher aléatoirement
+    System.Random random = new System.Random();
+
+    
+
+    private List<int> choix = new List<int> { 1, 2, 3 };
+    public List<int> shuffledList; 
+    public void Shuffle()
+    {
+        // fct qui mélange une liste
+        shuffledList = choix.OrderBy(x => random.Next()).ToList();
+    }
+
     private void SetOptions(StoryNode node)
     {
         List<NextNode> nexts = node.GetNextNodes();
-        proposion1.text = nexts[0].display;
-        proposion2.text = nexts[1].display;
-        proposion3.text = nexts[2].display;
+        // 
+        Debug.Log(shuffledList.Count +" : " + shuffledList[0] + " " + shuffledList[1] + " " + shuffledList[2]);
+        proposion1.text = nexts[shuffledList[0] - 1].display;
+        proposion2.text = nexts[shuffledList[1] - 1].display;
+        proposion3.text = nexts[shuffledList[2] - 1].display; 
     }
 
     // changer l'orientation du personnage
@@ -56,7 +73,7 @@ public class DialogueScripter    : MonoBehaviour
     // déclencher le dialogue en appelant DialogueManager
     public void TriggerDialogue() 
     {
-        DialogueManager.instance.StartDialogue(dialogue);
+        DialogueManager.instance.StartDialogue(dialogue, shuffledList);
     }
 
     public IEnumerator IsReturning()
@@ -97,6 +114,7 @@ public class DialogueScripter    : MonoBehaviour
         StoryNode node = story.GetCurrentNode();
         string name = GetNameFromNode(node);
         dialogue = new Dialogue(name, story);
+        Shuffle();
         SetOptions(node);
         DialogueManager.instance.panel.SetActive(false);
 
