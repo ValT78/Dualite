@@ -469,7 +469,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 732d93a1dc9dd8444a3450350903d8ca, type: 3}
   - {fileID: 0}
 --- !u!1 &3443315744580950910
 GameObject:

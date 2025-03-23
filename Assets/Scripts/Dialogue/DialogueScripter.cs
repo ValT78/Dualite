@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DialogueScripter    : MonoBehaviour
@@ -70,8 +69,6 @@ public class DialogueScripter    : MonoBehaviour
         }
 
         ResetSprite();
-
-
     }
     private IEnumerator IsComing() 
     {

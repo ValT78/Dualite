@@ -239,6 +239,81 @@ Transform:
   - {fileID: 4460234602144699001}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4470163747872156885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4406206669074244528}
+  - component: {fileID: 2517450537317437024}
+  - component: {fileID: 7689850176635852347}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4406206669074244528
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470163747872156885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1588528195889430475}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: -20}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2517450537317437024
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470163747872156885}
+  m_CullTransparentMesh: 1
+--- !u!114 &7689850176635852347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4470163747872156885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.33333334}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5099592170651402500
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,9 +521,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6412055848634359326}
     - target: {fileID: 2134150410394378878, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b271512b1cd5a045a970dd0cc65f1e2, type: 2}
+    - target: {fileID: 2134150410394378878, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
       propertyPath: nameText
       value: 
       objectReference: {fileID: 5551738523214093428}
+    - target: {fileID: 2134150410394378878, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
+      propertyPath: timerMax
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2134150410394378878, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
       propertyPath: dialogueText
       value: 
@@ -456,6 +539,10 @@ PrefabInstance:
     - target: {fileID: 4390920513053166209, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7874665810382501759, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7874665810382501759, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
       propertyPath: story
@@ -473,7 +560,8 @@ PrefabInstance:
       propertyPath: proposion3
       value: 
       objectReference: {fileID: 5103410061112395223}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1229908177924843551, guid: fef703f0a25c1c247aa4fc6a74a1befd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -639,6 +727,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4351468353014095576, guid: 8764d4507c0304f4199d6ad5a4aad83a, type: 2}
+    - target: {fileID: 4566022612219242353, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b271512b1cd5a045a970dd0cc65f1e2, type: 2}
     - target: {fileID: 5443630152886482546, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -681,11 +773,14 @@ PrefabInstance:
       objectReference: {fileID: -4351468353014095576, guid: 8764d4507c0304f4199d6ad5a4aad83a, type: 2}
     - target: {fileID: 8602792713514666256, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4149193273898117317, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 4406206669074244528}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
 --- !u!114 &1266152260454784866 stripped
@@ -702,6 +797,11 @@ MonoBehaviour:
 --- !u!224 &1377098402853765898 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4360362972008551428, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
+  m_PrefabInstance: {fileID: 3431585371631998734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1588528195889430475 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4149193273898117317, guid: 0b0af0d3b67ee2d4380ad0b35acffc1b, type: 3}
   m_PrefabInstance: {fileID: 3431585371631998734}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4165866978521604774 stripped
