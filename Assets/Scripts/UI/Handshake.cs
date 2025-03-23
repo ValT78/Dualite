@@ -16,7 +16,7 @@ public class Handshake : MonoBehaviour
     private void Update()
     {
         // Calcule l'angle basé sur un sinus oscillant entre -1 et 1
-        float angle = Mathf.Lerp(angleMin, angleMax, (Mathf.Sin((Time.time + timeOffset) * GameManager.Instance.anger * Mathf.PI * 4) + 1f) / 2f);
+        float angle = Mathf.Lerp(angleMin, angleMax, (Mathf.Sin((Time.time + timeOffset) * 1 * Mathf.PI * 4) + 1f) / 2f);
 
         // Applique la rotation
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
