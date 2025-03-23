@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     static public GameManager Instance;
 
     [Range(0f,1f)] public float anger;
+    [SerializeField] Material speed;
+    [SerializeField] Material blood;
 
 
 
@@ -16,6 +18,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (anger > 1f) SceneManager.LoadScene("menu");
+        if (anger > 1f) ResetScene();
+    }
+
+    public void ResetScene()
+    {
+        SceneManager.LoadScene("menu");
+        speed.SetFloat("_Alpha", 0f);
+        blood.SetFloat("_Alpha", 0f);
     }
 }
