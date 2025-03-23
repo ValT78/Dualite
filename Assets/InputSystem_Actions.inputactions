@@ -22,33 +22,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "MiddleDialog",
-                    "type": "Button",
-                    "id": "8f6c49cd-0859-498f-8081-92a55c866073",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LeftDialog",
-                    "type": "Value",
-                    "id": "55c1a5cc-6cdc-4132-a994-1a120077d595",
-                    "expectedControlType": "Integer",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "RightDialog",
-                    "type": "Button",
-                    "id": "17fce9a9-6e91-426f-9377-dc799f33eb7d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -93,39 +66,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7bd527b5-bf86-4de8-a667-22e6f5d47e6d",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "MiddleDialog",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "79246096-f517-496a-aae7-ebe256435b20",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "LeftDialog",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "94b61587-20be-42f8-b234-cd59c07eee7e",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "RightDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -650,8 +590,70 @@
         {
             "name": "Dialog",
             "id": "3ad0e66d-cd7f-4819-8a0b-45dadbfa1812",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "MiddleDialog",
+                    "type": "Button",
+                    "id": "9f4a580c-83e7-4a4f-92a9-6c9f53300365",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftDialog",
+                    "type": "Value",
+                    "id": "abedc743-c01b-44a0-870c-6d7bbe3a7bef",
+                    "expectedControlType": "Integer",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightDialog",
+                    "type": "Button",
+                    "id": "ab229adb-9d0f-4506-adbd-2dec18c24988",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5ce82556-120a-4410-bf03-0c5df297a3ab",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MiddleDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe93b29c-b1f9-4cd0-b871-0b93492beae9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "LeftDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1400f6b1-555b-40af-96de-c5d6e28ae490",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "RightDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

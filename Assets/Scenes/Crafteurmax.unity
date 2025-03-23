@@ -594,6 +594,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1525389662}
+    - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3566450544238171891, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_Name
       value: UI
@@ -614,6 +622,22 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 1731811973}
+    - target: {fileID: 7690044492315295887, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: allSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690044492315295887, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: 'allSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3073942110578069243, guid: 0f97bcee09fd97941b18d444d6403e8c, type: 3}
+    - target: {fileID: 7690044492315295887, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: 'allSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -521070944681824939, guid: 8fc92f38c4ab9c641b108848be6cb804, type: 3}
+    - target: {fileID: 7690044492315295887, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
+      propertyPath: 'allSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -6652639778881364088, guid: 7d095f632a633954e8962314b7a0ac73, type: 3}
     - target: {fileID: 8679352539550100260, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
