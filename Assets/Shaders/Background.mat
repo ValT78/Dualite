@@ -51,7 +51,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _speed: 3
-    - _t: 1.000948
+    - _t: 0.9288866
     m_Colors:
     - _BaseColor: {r: 0.7056604, g: 0.7056604, b: 0.7056604, a: 1}
     - _ColorA: {r: 0, g: 1, b: 0, a: 1}

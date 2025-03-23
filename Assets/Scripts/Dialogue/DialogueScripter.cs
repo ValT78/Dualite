@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,8 +58,7 @@ public class DialogueScripter    : MonoBehaviour
     private void SetOptions(StoryNode node)
     {
         List<NextNode> nexts = node.GetNextNodes();
-        // 
-        Debug.Log(shuffledList.Count +" : " + shuffledList[0] + " " + shuffledList[1] + " " + shuffledList[2]);
+
         proposion1.text = nexts[shuffledList[0] - 1].display;
         proposion2.text = nexts[shuffledList[1] - 1].display;
         proposion3.text = nexts[shuffledList[2] - 1].display; 
@@ -102,10 +102,22 @@ public class DialogueScripter    : MonoBehaviour
          
     } 
     // lancer le prochain NPC 
-    void ChangeSprite()
+    void ChangeSprite(string name)
     {
-        int randomIndex = Random.Range(0, allSprites.Count); // générer un index aléatoire
-        spriteRenderer.sprite = allSprites[randomIndex];   // appliquer le sprite choisi
+        switch (name)
+        {
+            case "Boss":
+                spriteRenderer.sprite = allSprites[0];
+                break;
+            case "Maman":
+                spriteRenderer.sprite = allSprites[1];
+                break;
+            case "Michel":
+                spriteRenderer.sprite = allSprites[2];
+                break;
+
+        }
+           // appliquer le sprite choisi
     }
 
     private void ResetSprite()
@@ -115,13 +127,13 @@ public class DialogueScripter    : MonoBehaviour
         string name = GetNameFromNode(node);
         dialogue = new Dialogue(name, story);
         Shuffle();
+        ChangeSprite(name);
         SetOptions(node);
         DialogueManager.instance.panel.SetActive(false);
 
         npcObject.transform.localPosition = new Vector3 (0f, 0f, 0f); 
         spriteRenderer.flipX = false;
         // Reset dialogue 
-        ChangeSprite();
         StartCoroutine(IsComing());
 
     }
