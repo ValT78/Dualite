@@ -64,7 +64,7 @@ public class CoinManager : MonoBehaviour
 
     private void SpawnCoin(Vector2 position)
     {
-        Instantiate(coinPrefab, position, Quaternion.identity, coinContainer);
+        PlatformManager.activePlatforms.Enqueue(Instantiate(coinPrefab, position, Quaternion.identity, coinContainer));
     }
 
     private float WrapPosition(float x)

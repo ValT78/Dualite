@@ -8,13 +8,14 @@ public class Creature : MonoBehaviour
 
     [Header("Bouncing Settings")]
     public float jumpForce = 5f;
-    public float jumpInterval = 2f;
+    public float gravity = 2f;
 
     [Header("Flying Settings")]
     public float speed = 2f;
     private float screenWidth;
 
     [Header("Vibration Settings")]
+    [SerializeField] private Transform bodyNode;
     public float vibrationIntensity = 0.1f;
     public float vibrationSpeed = 3f;
 
@@ -26,15 +27,12 @@ public class Creature : MonoBehaviour
         initialPosition = transform.position;
         rb = GetComponent<Rigidbody2D>();
 
-        if (behavior == BehaviorType.Bouncing)
-        {
-            InvokeRepeating(nameof(Jump), 1f, jumpInterval);
-        }
+        
 
         screenWidth = PlatformManager.screenWidth + 1f; // +1 pour marge de sécurité
 
-        StartCoroutine(ApplyVibration());
-
+/*        StartCoroutine(ApplyVibration());
+*/
         SoundManager.PlaySound(SoundType.Mob, 0.3f);
     }
 
@@ -44,29 +42,33 @@ public class Creature : MonoBehaviour
         {
             Fly();
         }
+        else if (behavior == BehaviorType.Bouncing)
+        {
+            Jump();
+        }
     }
 
     IEnumerator ApplyVibration()
     {
         while (true)
         {
-            float targetX = initialPosition.x + (Mathf.PerlinNoise(Time.time * vibrationSpeed, 0f) - 0.5f) * vibrationIntensity;
-            float targetY = initialPosition.y + (Mathf.PerlinNoise(0f, Time.time * vibrationSpeed) - 0.5f) * vibrationIntensity;
+            float targetX = (Mathf.PerlinNoise(Time.time * vibrationSpeed, 0f) - 0.5f) * vibrationIntensity;
+            float targetY = (Mathf.PerlinNoise(0f, Time.time * vibrationSpeed) - 0.5f) * vibrationIntensity;
 
-            Vector3 targetPosition = new Vector3(targetX, targetY, initialPosition.z);
+            Vector3 targetPosition = new Vector3(targetX, targetY, 0);
             float duration = 0.1f; // Durée de transition fluide
             float elapsed = 0f;
 
-            Vector3 startPosition = transform.position;
+            Vector3 startPosition = bodyNode.position;
 
             while (elapsed < duration)
             {
-                transform.position = Vector3.Lerp(startPosition, targetPosition, elapsed / duration);
+                bodyNode.position = Vector3.Lerp(startPosition, targetPosition, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            transform.position = targetPosition;
+            bodyNode.position = targetPosition;
 
             yield return new WaitForSeconds(0.05f); // Pause entre les vibrations
         }
@@ -74,10 +76,11 @@ public class Creature : MonoBehaviour
 
     void Jump()
     {
-        if (rb)
+        if (transform.position.y <= initialPosition.y)
         {
             rb.linearVelocityY = jumpForce;
         }
+        rb.linearVelocityY -= gravity * Time.deltaTime;
     }
 
     void Fly()
@@ -93,5 +96,13 @@ public class Creature : MonoBehaviour
     {
         Destroy(gameObject);
         SoundManager.PlaySound(SoundType.Kill, 0.3f);
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out DoodleJumpPlayer player))
+        {
+            player.Die();
+        }
     }
 }

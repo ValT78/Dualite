@@ -91,13 +91,11 @@ public class DoodleJumpPlayer : MonoBehaviour
                 SoundManager.PlaySound(SoundType.Jump, 0.3f);
             }
         }
-        else if (collision.gameObject.TryGetComponent(out Creature creature))
-        {
-            Die();
-        }
+        
     }
 
-    void Die()
+
+    public void Die()
     {
         isDead = true;
         rb.linearVelocity = new Vector2(Random.Range(-deathSideForce, deathSideForce), deathJumpForce);
