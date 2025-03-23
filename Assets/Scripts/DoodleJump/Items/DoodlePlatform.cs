@@ -69,6 +69,7 @@ public class DoodlePlatform : MonoBehaviour
        if (isBreakable && !isBreaking && collision.gameObject.TryGetComponent(out DoodleJumpPlayer player) && player.GetComponent<Rigidbody2D>().linearVelocityY < 0.001)
         {
             isBreaking = true;
+            SoundManager.PlaySound(SoundType.PlatformBreak, 1.0f);
             Destroy(gameObject);
         }
     }
