@@ -48,6 +48,7 @@ public class DoodleJumpPlayer : MonoBehaviour
 
     public void OnDoodleMove(InputValue value)
     {
+        print(value.Get<Vector2>());
         moveInput = value.Get<Vector2>();
     }
 

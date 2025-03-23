@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "MiddleDialog",
+                    "type": "Button",
+                    "id": "8f6c49cd-0859-498f-8081-92a55c866073",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "LeftDialog",
                     "type": "Value",
-                    "id": "0e6d7cb8-92fd-4fbf-ba19-1b1d9535acf3",
+                    "id": "55c1a5cc-6cdc-4132-a994-1a120077d595",
                     "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": "",
@@ -35,16 +44,7 @@
                 {
                     "name": "RightDialog",
                     "type": "Button",
-                    "id": "c20d4f27-1e72-4d18-99a9-68027b3f2579",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MiddleDialog",
-                    "type": "Button",
-                    "id": "216bde88-398e-465a-aacc-b20274503463",
+                    "id": "17fce9a9-6e91-426f-9377-dc799f33eb7d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -98,7 +98,18 @@
                 },
                 {
                     "name": "",
-                    "id": "ced02a47-5810-480b-9cdb-2656d4747033",
+                    "id": "7bd527b5-bf86-4de8-a667-22e6f5d47e6d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MiddleDialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79246096-f517-496a-aae7-ebe256435b20",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
@@ -109,23 +120,12 @@
                 },
                 {
                     "name": "",
-                    "id": "fc99bdf5-419b-4722-8c93-4d21f0dd9752",
+                    "id": "94b61587-20be-42f8-b234-cd59c07eee7e",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RightDialog",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8ccb8a35-31f6-4ae1-b256-c7ddbcf79ab4",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "MiddleDialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -646,6 +646,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Dialog",
+            "id": "3ad0e66d-cd7f-4819-8a0b-45dadbfa1812",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [

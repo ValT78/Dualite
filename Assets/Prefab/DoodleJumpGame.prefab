@@ -289,7 +289,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -663,7 +662,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -1134,7 +1132,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -1309,7 +1306,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -1484,7 +1480,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -1659,7 +1654,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -1762,7 +1756,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.8301887, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -2054,7 +2048,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -2229,7 +2222,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
@@ -2319,6 +2311,8 @@ MonoBehaviour:
     breakableChance: 0
     movingChance: 0
     movingSpeed: 0
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0.05
   - name: break
     segmentHeight: 30
@@ -2327,6 +2321,8 @@ MonoBehaviour:
     breakableChance: 0.5
     movingChance: 0
     movingSpeed: 0
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0.05
   - name: space
     segmentHeight: 15
@@ -2335,6 +2331,8 @@ MonoBehaviour:
     breakableChance: 0
     movingChance: 0.1
     movingSpeed: 2
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0.05
   - name: move
     segmentHeight: 15
@@ -2343,6 +2341,8 @@ MonoBehaviour:
     breakableChance: 0
     movingChance: 0.7
     movingSpeed: 4
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0.05
   - name: move2
     segmentHeight: 15
@@ -2351,6 +2351,8 @@ MonoBehaviour:
     breakableChance: 0
     movingChance: 0.7
     movingSpeed: 3
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0.05
   - name: random
     segmentHeight: 20
@@ -2359,6 +2361,8 @@ MonoBehaviour:
     breakableChance: 0.4
     movingChance: 0.3
     movingSpeed: 2
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0.05
   - name: large_breakable
     segmentHeight: 20
@@ -2367,6 +2371,8 @@ MonoBehaviour:
     breakableChance: 1
     movingChance: 0
     movingSpeed: 0
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0
   - name: large_breakable
     segmentHeight: 20
@@ -2375,6 +2381,8 @@ MonoBehaviour:
     breakableChance: 1
     movingChance: 0
     movingSpeed: 0
+    movingAPoint: {x: 0, y: 0}
+    movingBPoint: {x: 0, y: 0}
     monsterChance: 0
   spawnOffset: 2
   coinTrailChance: 0.05
@@ -2743,7 +2751,6 @@ MonoBehaviour:
   isMoving: 0
   isOneWay: 1
   destroyDelay: 0.5
-  pointA: {x: 0, y: 0}
   pointB: {x: 0, y: 0}
   speed: 2
   continuousMovement: 0
