@@ -33,6 +33,7 @@ public class DoodleJumpPlayer : MonoBehaviour
     {
         if (isDead) return;
 
+
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
 
         // Effet wrap (réapparaît de l'autre côté de l'écran)

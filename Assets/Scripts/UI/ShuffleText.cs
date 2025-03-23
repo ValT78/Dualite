@@ -15,7 +15,6 @@ public class ShuffleText : MonoBehaviour
     {
         if(!GameManager.Instance) return;
         textMask = new bool[text.text.Length];
-        Debug.Log(GameManager.Instance.anger);
         for (int i = 0; i < textMask.Length; i++) textMask[i] = (Random.value <= GameManager.Instance.anger && text.text[i] != ' ');
     }
 
