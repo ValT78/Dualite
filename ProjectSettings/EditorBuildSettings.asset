@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/menu.unity
+    guid: 4178fd90ac9497546855a5effeeb94dd
+  - enabled: 1
     path: Assets/Scenes/Crafteurmax.unity
     guid: 21dc2477bb930574da4e0c5fde1c745c
   m_configObjects:

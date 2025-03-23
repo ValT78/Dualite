@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d64dd75516ddc6542838007a4e5ecfd5
+guid: 9313b0f40a126484e973233e45e4fbe8
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      colored_big_eyes_0: -1446805609322653445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
