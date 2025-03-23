@@ -72,6 +72,7 @@ public class DoodlePlatform : MonoBehaviour
         {
             isBreaking = true;
             StartCoroutine(BreakPlatform());
+            SoundManager.PlaySound(SoundType.PlatformBreak, 1.0f);
         }
     }
 
