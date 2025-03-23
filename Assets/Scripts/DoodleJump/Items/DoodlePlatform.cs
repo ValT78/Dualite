@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DoodlePlatform : MonoBehaviour
@@ -9,6 +10,7 @@ public class DoodlePlatform : MonoBehaviour
 
     [Header("Breakable Settings")]
     [SerializeField] private float destroyDelay = 0.5f;
+    [SerializeField] private Sprite brokenPlatform;
 
     [Header("Moving Settings")]
     private Vector2 pointA;
@@ -69,8 +71,24 @@ public class DoodlePlatform : MonoBehaviour
        if (isBreakable && !isBreaking && collision.gameObject.TryGetComponent(out DoodleJumpPlayer player) && player.GetComponent<Rigidbody2D>().linearVelocityY < 0.001)
         {
             isBreaking = true;
-            Destroy(gameObject);
+            StartCoroutine(BreakPlatform());
         }
+    }
+
+    private IEnumerator BreakPlatform()
+    {
+        
+        GetComponent<Collider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().sprite = brokenPlatform;
+        //Faire tomber la plateforme
+        float y = 0;
+        while (y < 6)
+        {
+            transform.position -= new Vector3(0, Time.deltaTime*2, 0);
+            y+=Time.deltaTime*2;
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 
     public bool GetIsBreakable()
