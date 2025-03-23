@@ -237,7 +237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7443756053782179069, guid: bc6c183e5046b004a83a80bbc06e5b7a, type: 3}
+  m_Sprite: {fileID: -7585009627398372457, guid: 5f57fc25416f3754ba3498cd20051320, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -792,7 +792,7 @@ PrefabInstance:
     - target: {fileID: 3299303592020187681, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7585009627398372457, guid: 5f57fc25416f3754ba3498cd20051320, type: 3}
+      objectReference: {fileID: -7443756053782179069, guid: bc6c183e5046b004a83a80bbc06e5b7a, type: 3}
     - target: {fileID: 3299303592020187681, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
       propertyPath: m_SortingOrder
       value: -3
@@ -804,6 +804,26 @@ PrefabInstance:
     - target: {fileID: 4973887412070351816, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440219441796560573, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.26048264
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440219441796560573, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2477208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440219441796560573, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.470008
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440219441796560573, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440219441796560573, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 6724002464233292801, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
       propertyPath: m_DefaultActionMap
