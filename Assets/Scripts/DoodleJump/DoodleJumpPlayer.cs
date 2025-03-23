@@ -25,6 +25,10 @@ public class DoodleJumpPlayer : MonoBehaviour
     [SerializeField] private Collider2D col;
     [SerializeField] private Camera playerCamera;
 
+    [Header("Sprite")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] sprites; // [0] = normal, [1] = jump, [2] = attack
+
     private Vector2 moveInput;
     private bool isDead;
     private bool canShoot = true;
@@ -50,6 +54,14 @@ public class DoodleJumpPlayer : MonoBehaviour
     public void OnDoodleMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+        if (moveInput.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (moveInput.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     public void OnAttack(InputValue value)
@@ -77,6 +89,7 @@ public class DoodleJumpPlayer : MonoBehaviour
 
         // Instancier le projectile au-dessus du joueur
         Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        StartCoroutine(AttackSprite());
 
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
@@ -90,9 +103,24 @@ public class DoodleJumpPlayer : MonoBehaviour
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 SoundManager.PlaySound(SoundType.Jump, 0.3f);
+                StartCoroutine(JumpSprite());
             }
         }
         
+    }
+
+    private IEnumerator JumpSprite()
+    {
+        spriteRenderer.sprite = sprites[1];
+        yield return new WaitForSeconds(0.7f);
+        spriteRenderer.sprite = sprites[0];
+    }
+
+    private IEnumerator AttackSprite()
+    {
+        spriteRenderer.sprite = sprites[2];
+        yield return new WaitForSeconds(0.4f);
+        spriteRenderer.sprite = sprites[0];
     }
 
 
