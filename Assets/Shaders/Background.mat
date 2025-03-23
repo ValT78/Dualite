@@ -50,8 +50,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _t: 0
+    - _speed: 1
+    - _t: 0.41667074
     m_Colors:
+    - _BaseColor: {r: 0.7056604, g: 0.7056604, b: 0.7056604, a: 1}
     - _ColorA: {r: 0, g: 1, b: 0, a: 1}
     - _ColorB: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
