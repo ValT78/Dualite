@@ -19,12 +19,12 @@ Dualite
     "awful": "red",
     "rat": "yellow"
   },
-  "zoom": 1
+  "zoom": 0.3
 }
 
 
 :: boss01 [boss] {"position":"500,300","size":"100,100"}
-Votre pause café a duré 15 minutes de trop ! Je vous rappelle qu’il ne vous reste plus qu’une demi-heure pour rendre votre dossier, et il a intérêt à être PARFAIT. Vous n’aurez pas droit à plus de temps, seuls ceux qui fournissent des EFFORTS y ont droit. Allez, du nerf ! 
+15 minutes de trop pour votre pause café ! Vous n’avez plus que 30 minutes pour rendre un dossier PARFAIT. Et ne demandez pas plus de temps, c’est seulement pour ceux qui font des EFFORTS. Allez, du nerf ! 
 
 [[Oui Monsieur...->boss01-good]]
 [[Mais la perfection n’existe pas !->boss01-bad]]
@@ -32,7 +32,7 @@ Votre pause café a duré 15 minutes de trop ! Je vous rappelle qu’il ne vous 
 
 
 :: boss01-awful [boss awful] {"position":"625,425","size":"100,100"}
-Visiblement vous n’avez pas l’air consciente du peu d’effort qu’il faut pour vous licencier quand vous faites preuve d’un tel comportement. AU TRAVAIL, TOUT DE SUITE !
+Visiblement vous n’avez pas l’air consciente du peu d’effort qu’il faut pour vous licencier quand vous faites preuve d’un tel comportement. Au travail, tout de suite !
 
 
 :: boss01-bad [boss bad] {"position":"500,425","size":"100,100"}
@@ -63,30 +63,181 @@ Votre gestion du temps laisse à désirer. Un collégien serait plus efficace qu
 Ne me décevez pas.
 
 
-:: maman01 [maman] {"position":"500,1200","size":"100,100"}
-Coucou mon petit bout d’chou, ça va ?
+:: boss03 [boss] {"position":"1300,300","size":"100,100"}
+C’est pas bientôt fini les baillements ? Vous lancez une véritable épidémie dans tout l’étage !
+
+[[Je suis désolée, je veillerai à ce que ça ne se reproduise plus.->boss03-good]]
+[[Je suis désolée, je- (yaaaaaaaaaaawn)->boss03-bad]]
+[[Je suis désolée d’être plus virale que vous, moi au moins les gens me suivent.->boss03-awful]]
 
 
-
-:: michel01 [michel] {"position":"500,600","size":"100,100"}
-C’était vraiment quelque chose hier ! T’as vraiment raté un truc incroyable ! Tu vois Cassie, celle du bureau qui est à 2 pas de la machine à café ? Tu lui redemanderas parce qu’elle a tout vu elle aussi, j’crois même qu’elle a tout filmé. Mais vraiment j’te raconte pas la dinguerie, j’ai vraiment autant de chance dans la vie que c’qu’on dit. Ok ok j’arrête de tease, je crache le morceau : tu vois le jeu qui vient de sortir ? Et bah quand je faisais la queue pour l’acheter hier j’ai vu un chat qui passait du coup je voulais le prendre en photo mais il s’est enfui mais le truc c’est qu’il avait un objet brillant dans sa gueule du coup et c’est là que Cassie est arrivée et l’a filmé non stop pendant qu’il courait et je pensais que c’était parce le chat était cute mais en fait non c’était parce que le chat avait piqué un de ses objets perso c’était carrément sa bague de fiançailles et du coup j’allais pas rester sans rien faire du coup j’ai couru après le chat moi aussi et j’te jure on est allés super loin mais j’ai réussi à le rattraper au final mais quand je l’ai grab je me suis cogné contre quelqu’un en me relevant tu devineras jamais qui c’était et bah en fait c’était le boss qui venait de faire ses courses et il m’a râlé dessus sauf qu’il a fait tombé un ticket de loto et tu devineras jamais mais c’était un ticket gagnant tu te rends compte ?! J’vais tellement tout claquer dans des jeux pendant les vacances je vais tellement pas sortir de chez moi ça va être génial. C’est vraiment incroyable non ?
-
-[[->michel01-good]]
-[[Ok.->michel01-bad]]
-[[->michel01-awful]]
+:: boss03-awful [boss awful] {"position":"1425,425","size":"100,100"}
+J’imagine donc que vous n’aurez aucune difficulté à devenir Youtubeuse après avoir été licenciée.
 
 
-:: michel01-awful [michel awful] {"position":"625,725","size":"100,100"}
+:: boss03-bad [boss bad] {"position":"1300,425","size":"100,100"}
+Le bureau n’est pas une salle de sieste. Si vous gériez mieux votre temps vous seriez en pleine forme.
 
 
-
-:: michel01-bad [michel bad] {"position":"500,725","size":"100,100"}
-
-
-
-:: michel01-good [michel good] {"position":"375,725","size":"100,100"}
+:: boss03-good [boss good] {"position":"1175,425","size":"100,100"}
+Vous avez intérêt.
 
 
+:: boss04 [boss] {"position":"1700,300","size":"100,100"}
+Vous posez beaucoup trop de questions inutiles, ne cherchez pas loin et concentrez-vous sur l’essentiel avant les détails !
 
-:: rat01 [rat] {"position":"500,900","size":"100,100"}
+[[Bien noté, je vais rectifier mes mauvaises habitudes de ce pas. ->boss04-good]]
+[[Pourquoi ?->boss04-bad]]
+[[Et ça veut viser la perfection comme ça, franchement...->boss04-awful]]
 
+
+:: boss04-awful [boss awful] {"position":"1825,425","size":"100,100"}
+Je vous ai entendue ! En plus d’être ignorante, vous êtes insolente ! Je ne veux plus vous entendre, retournez travailler !
+
+
+:: boss04-bad [boss bad] {"position":"1700,425","size":"100,100"}
+Et voilà, vous recommencez ! Taisez-vous et travaillez !
+
+
+:: boss04-good [boss good] {"position":"1575,425","size":"100,100"}
+Il était temps que vous vous remettiez en question.
+
+
+:: boss05 [boss] {"position":"2100,300","size":"100,100"}
+Vous n’avez pas respecté les délais, dois-je vous rappeler que vous n’êtes pas payée pour le temps que vous passez devant votre écran, mais pour vos résultats ?
+
+[[Je suis désolée, je vous envoie ça tout de suite.->boss05-good]]
+[[Je suis désolée, j’avais beaucoup de choses en parallèle...->boss05-bad]]
+[[Je suis désolée, mais on ne les voit pas, vos résultats à vous. ->boss05-awful]]
+
+
+:: boss05-awful [boss awful] {"position":"2225,425","size":"100,100"}
+Vous aurez tout le temps de les voir depuis l’extérieur après votre licenciement. Finissez votre travail immédiatement !
+
+
+:: boss05-bad [boss bad] {"position":"2100,425","size":"100,100"}
+Je ne veux pas des excuses, je veux des résultats. Vous avez 2 minutes pour vous racheter.
+
+
+:: boss05-good [boss good] {"position":"1975,425","size":"100,100"}
+Bien, que ça ne se reproduise plus !
+
+
+:: maman01 [maman] {"position":"500,900","size":"100,100"}
+Coucou ma puce, ça va ? J’ai suivi les conseils que tu m’avais donnés par téléphone mais l’imprimante ne marche toujours pas... Tu pourrais t’en occuper rapidement ?
+
+[[Bien sûr maman, j’y vais tout de suite !->maman01-good]]
+[[Bien sûr maman, mais pas avant ce soir, je suis occupée..->maman01-bad]]
+[[Bien sûr maman, tiens, cette vidéo résume bien, bye bye !->maman01-awful]]
+
+
+:: maman01-awful [maman awful] {"position":"625,1025","size":"100,100"}
+Ah, euh, merci ma puce...
+
+
+:: maman01-bad [maman bad] {"position":"500,1025","size":"100,100"}
+J’en ai besoin pour aujourd’hui mais je comprends, merci quand même ma puce.
+
+
+:: maman01-good [maman good] {"position":"375,1025","size":"100,100"}
+Merci ma puce !
+
+
+:: maman02 [maman] {"position":"900,900","size":"100,100"}
+Re-coucou ma puce, ça prendra que 5 secondes, ne t’inquiète pas. Dis-moi, tu penses que cette affiche est bien pour la soirée jeux du quartier ?
+
+[[Ouais elle rend super bien, bien joué maman !->maman02-good]]
+[[Hmm, j’aurais pas choisi ces couleurs là...->maman02-bad]]
+[[Je suis occupée, demande plutôt aux voisins.->maman02-awful]]
+
+
+:: maman02-awful [maman awful] {"position":"1025,1025","size":"100,100"}
+Mais ils sont occupés, et je voulais avoir ton avis... Désolée ma puce...
+
+
+:: maman02-bad [maman bad] {"position":"900,1025","size":"100,100"}
+Ah bon... Bon j’y retourne alors. Merci ma puce !
+
+
+:: maman02-good [maman good] {"position":"775,1025","size":"100,100"}
+Merci ma puce, je vais pouvoir l’afficher alors !
+
+
+:: maman03 [maman] {"position":"1300,900","size":"100,100"}
+Coucou ma puce, c’est encore moi ! Tu sais où est mon matériel de couture ?
+
+[[Hmm, tu as pensé à chercher dans les cartons dans le garage ?->maman03-good]]
+[[Je sais pas, demande à Julie.->maman03-bad]]
+[[Et si tu notais où tu ranges les choses pour une fois ? Débrouille-toi !->maman03-awful]]
+
+
+:: maman03-awful [maman awful] {"position":"1425,1025","size":"100,100"}
+Désolée ma puce...
+
+
+:: maman03-bad [maman bad] {"position":"1300,1025","size":"100,100"}
+Oh, d’accord, désolée et merci ma puce !
+
+
+:: maman03-good [maman good] {"position":"1175,1025","size":"100,100"}
+Oh, bien pensé ! Merci ma puce !
+
+
+:: michel01 [rat] {"position":"500,600","size":"100,100"}
+Hey, t’aurais pas un stylo s’teuplaît ? Je dois prendre des notes dans moins d’1 minute...
+
+[[Bien sûr, j’en ai un sur mon bureau, sers-toi !->rat01-good]]
+[[Bien sûr, et tu veux un café avec ? Vas-y sers-toi !->rat01-bad]]
+[[Bien sûr, ça fera 100 euros. Va voir ailleurs !->rat01-awful]]
+
+
+:: michel02 [rat] {"position":"900,600","size":"100,100"}
+Hey, j’te dérange une fois de plus, t’aurais pas 1 euro pour que j’me prenne une boisson stp ? Promis je te rembourse demain !
+
+[[Mais bien sûr, tiens, 1 euro !->rat02-good]]
+[[Mais bien sûr, tiens, rien du tout !->rat02-bad]]
+[[Mais bien sûr, tiens, un doigt !->rat02-awful]]
+
+
+:: michel03 [rat] {"position":"1300,600","size":"100,100"}
+Hey, t’aurais pas de l’essuie-tout ? J’ai un peu renversé mon café...
+
+[[Bien sûr, juste là, sers-toi !->rat03-good]]
+[[Oui, dans la salle de pause, sers-toi !->rat03-bad]]
+[[Skill issue, t’avais qu’à pas le renverser.->rat03-awful]]
+
+
+:: rat01-awful [rat awful] {"position":"625,725","size":"100,100"}
+Sale radine !
+
+
+:: rat01-bad [rat bad] {"position":"500,725","size":"100,100"}
+Hey, c’est juste un stylo, franchement...
+
+
+:: rat01-good [rat good] {"position":"375,725","size":"100,100"}
+Merci, tu me sauves !
+
+
+:: rat02-awful [rat awful] {"position":"1025,725","size":"100,100"}
+Mais va te faire foutre !
+
+
+:: rat02-bad [rat bad] {"position":"900,725","size":"100,100"}
+Radine !
+
+
+:: rat02-good [rat good] {"position":"775,725","size":"100,100"}
+Merci beaucoup, promis je te rembourse demain !
+
+
+:: rat03-awful [rat awful] {"position":"1425,725","size":"100,100"}
+Va crever sale rat.
+
+
+:: rat03-bad [rat bad] {"position":"1300,725","size":"100,100"}
+Tsk, c’est quand même plus rapide de prendre le tien, radine.
+
+
+:: rat03-good [rat good] {"position":"1175,725","size":"100,100"}
+Merci beaucoup !

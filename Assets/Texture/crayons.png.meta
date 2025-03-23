@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 3331a938d54a23d4bb40637d5bae1bde
+guid: 1bfc32e815f3da54fba794849870c94c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2057247325340568159
-    second: attack_baby_coloured_0
+      213: -8663604690125622890
+    second: crayons_0
+  - first:
+      213: -5278963325595919193
+    second: crayons_1
+  - first:
+      213: 3748709599593682179
+    second: crayons_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: attack_baby_coloured_0
+      name: crayons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 440
-        height: 349
+        x: 313
+        y: 602
+        width: 545
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5a0c0aea8fcc8c10800000000000000
-      internalID: 2057247325340568159
+      spriteID: 69177a2af61b4c780800000000000000
+      internalID: -8663604690125622890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crayons_1
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 492
+        width: 545
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac5a8313da5db6b0800000000000000
+      internalID: -5278963325595919193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crayons_2
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 384
+        width: 547
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305d0e1f487160430800000000000000
+      internalID: 3748709599593682179
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      attack_baby_coloured_0: 2057247325340568159
+      crayons_0: -8663604690125622890
+      crayons_1: -5278963325595919193
+      crayons_2: 3748709599593682179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

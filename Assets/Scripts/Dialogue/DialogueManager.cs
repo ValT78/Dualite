@@ -58,6 +58,7 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayNextSentence()
     {
+        if(story.GetCurrentNode() == null) return;
         dialogueText.text = story.GetCurrentNode().getText(); 
         if (story.GetCurrentNode().GetNextNodes().Count == 0) 
         {
