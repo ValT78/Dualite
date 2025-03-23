@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bureau_color_0: -2423263520476945327
+      bureau_color_1: 412205825744396285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
