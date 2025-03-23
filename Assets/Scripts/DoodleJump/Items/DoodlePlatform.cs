@@ -11,24 +11,14 @@ public class DoodlePlatform : MonoBehaviour
     [SerializeField] private float destroyDelay = 0.5f;
 
     [Header("Moving Settings")]
-    [SerializeField] private Vector2 pointA;
+    private Vector2 pointA;
     [SerializeField] private Vector2 pointB;
     [SerializeField] private float speed = 2f;
     [SerializeField] private bool continuousMovement = false;
 
-    [Header("References")]
-    private Collider2D platformCollider;
-
     private Vector2 target;
     private Vector2 direction;
     private bool isBreaking = false;
-
-    private void Awake()
-    {
-        platformCollider = GetComponent<Collider2D>();
-        pointA.y = transform.position.y;
-        pointB.y += transform.position.y;
-    }
 
     private void Start()
     {
@@ -86,5 +76,15 @@ public class DoodlePlatform : MonoBehaviour
     public bool GetIsBreakable()
     {
         return isBreakable;
+    }
+
+    public void SetPlateforme(float speed, Vector2 pointA, Vector2 pointB)
+    {
+        this.speed = speed;
+        this.pointB = pointB;
+        this.pointB.y += transform.position.y;
+        this.pointA = pointA;
+        this.pointA.y += transform.position.y;
+
     }
 }

@@ -31,8 +31,8 @@ public class Creature : MonoBehaviour
 
         screenWidth = PlatformManager.screenWidth + 1f; // +1 pour marge de sécurité
 
-/*        StartCoroutine(ApplyVibration());
-*/
+        StartCoroutine(ApplyVibration());
+
         SoundManager.PlaySound(SoundType.Mob, 0.3f);
     }
 
@@ -59,16 +59,16 @@ public class Creature : MonoBehaviour
             float duration = 0.1f; // Durée de transition fluide
             float elapsed = 0f;
 
-            Vector3 startPosition = bodyNode.position;
+            Vector3 startPosition = bodyNode.localPosition;
 
             while (elapsed < duration)
             {
-                bodyNode.position = Vector3.Lerp(startPosition, targetPosition, elapsed / duration);
+                bodyNode.localPosition = Vector3.Lerp(startPosition, targetPosition, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            bodyNode.position = targetPosition;
+            bodyNode.localPosition = targetPosition;
 
             yield return new WaitForSeconds(0.05f); // Pause entre les vibrations
         }

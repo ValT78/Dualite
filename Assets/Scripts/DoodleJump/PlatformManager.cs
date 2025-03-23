@@ -10,7 +10,11 @@ public class PlatformSegment
     public float maxSpacing;
     public float breakableChance;
     public float movingChance;
-    public float monsterChance; // Probabilité qu'un monstre apparaisse sur une plateforme
+    public float movingSpeed;
+    public Vector2 movingAPoint;
+    public Vector2 movingBPoint;
+    public float monsterChance;
+
 }
 
 public class PlatformManager : MonoBehaviour
@@ -33,6 +37,7 @@ public class PlatformManager : MonoBehaviour
     [Header("Segments Settings")]
     [SerializeField] private List<PlatformSegment> segments;
     private PlatformSegment currentSegment;
+    [SerializeField] private float spawnOffset;
 
     [Header("Coin Settings")]
     [SerializeField] private float coinTrailChance;
@@ -69,9 +74,8 @@ public class PlatformManager : MonoBehaviour
     {
         float camTop = playerCamera.transform.position.y + playerCamera.orthographicSize;
 
-        if (highestPlatformY < camTop + currentSegment.maxSpacing)
+        if (highestPlatformY < camTop + spawnOffset)
         {
-            print(camTop + currentSegment.maxSpacing);
             SpawnPlatform();
         }
 
@@ -97,6 +101,7 @@ public class PlatformManager : MonoBehaviour
         else if (rand < currentSegment.breakableChance + currentSegment.movingChance)
         {
             newPlatform = Instantiate(movingPlatformPrefab, new Vector3(spawnX, spawnY, 0), Quaternion.identity, platformContainer);
+            newPlatform.GetComponent<DoodlePlatform>().SetPlateforme(currentSegment.movingSpeed, currentSegment.movingAPoint, currentSegment.movingBPoint);
         }
         else
         {
@@ -149,7 +154,7 @@ public class PlatformManager : MonoBehaviour
 
     private void CleanupPlatforms()
     {
-        float camBottom = playerCamera.transform.position.y - playerCamera.orthographicSize;
+        float camBottom = playerCamera.transform.position.y - playerCamera.orthographicSize -1;
 
         while (activePlatforms.Count > 0 && (activePlatforms.Peek() == null || activePlatforms.Peek().transform.position.y < camBottom))
         {
