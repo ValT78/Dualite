@@ -650,13 +650,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1628817851}
-  - {fileID: 1210132628}
-  - {fileID: 251449403}
   - {fileID: 127214809}
   - {fileID: 691544600}
   - {fileID: 1650939962}
   - {fileID: 1550952168}
+  - {fileID: 1628817851}
+  - {fileID: 1210132628}
+  - {fileID: 251449403}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975e8c8ffad91914ab33b33a645a8327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 
+  levelToLoad: CrafteurMax
 --- !u!4 &1173761659
 Transform:
   m_ObjectHideFlags: 0
