@@ -709,6 +709,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6724002464233292801, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: df70fa95-8a34-4494-b137-73ab6b9c7d37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724002464233292801, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7852994041768391512, guid: cdf5a5602f3da6443ac6510f4bf62587, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
