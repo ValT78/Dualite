@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Material material;
     private Coroutine coroutineTimer;
     List<int> indexs;
+    bool isTalking = false;
 
     // afficher un avertissement si il y a déjà une instance de DialogueManager sur la scène
     private void Awake()
@@ -37,8 +38,10 @@ public class DialogueManager : MonoBehaviour
          panel.SetActive(true);
          indexs = shuffledList;
          nameText.text = dialogue.name;
-         story = dialogue.story; 
-         DisplayNextSentence();
+         story = dialogue.story;
+        isTalking = true;
+        DisplayNextSentence();
+        Debug.Log("reset");
          coroutineTimer = StartCoroutine(startTimer());
 
     }
@@ -59,8 +62,7 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayNextSentence()
     {
-        //if(story.GetCurrentNode() == null) return;
-        Debug.Log(story.GetCurrentNode());
+        if (!isTalking) return;
         dialogueText.text = story.GetCurrentNode().getText(); 
         if (story.GetCurrentNode().GetNextNodes().Count == 0) 
         {
@@ -73,6 +75,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("Fin du dialogue"); 
         if(coroutineTimer != null) StopCoroutine(coroutineTimer);
+        isTalking = false;
         StartCoroutine(DialogueScripter.Instance.IsReturning());
     }
 
@@ -94,7 +97,9 @@ public class DialogueManager : MonoBehaviour
     // Afficher et choisir les 3 propositions (boutons QSD)
     public void LeftDialogAction(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Canceled) return;
+        if (context.phase != InputActionPhase.Canceled || !isTalking) return;
+        if (story == null || story.GetCurrentNode() == null) return;
+
         story.SetNextNode(story.GetCurrentNode().GetTitle()+ GetChoiceSuffix(indexs[0]));
         SoundManager.PlaySound(SoundType.Button, 0.4f);
         DisplayNextSentence();
@@ -102,14 +107,18 @@ public class DialogueManager : MonoBehaviour
 
     public void RightDialogAction(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Canceled) return;
+        if (context.phase != InputActionPhase.Canceled || !isTalking) return;
+        if (story == null || story.GetCurrentNode()==null) return;
+
         story.SetNextNode(story.GetCurrentNode().GetTitle() + GetChoiceSuffix(indexs[1]));
         SoundManager.PlaySound(SoundType.Button, 0.4f);
         DisplayNextSentence();
     }
     public void MiddleDialogAction(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Canceled) return;
+        if (context.phase != InputActionPhase.Canceled || !isTalking) return;
+        if (story == null || story.GetCurrentNode() == null) return;
+
         story.SetNextNode(story.GetCurrentNode().GetTitle()+ GetChoiceSuffix(indexs[2]));
         SoundManager.PlaySound(SoundType.Button, 0.4f);
         DisplayNextSentence(); 
