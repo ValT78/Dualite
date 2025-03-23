@@ -534,15 +534,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionId
-      value: 15f01235-ee42-4ac2-9bad-4d2b9de3acbd
+      value: 8f6c49cd-0859-498f-8081-92a55c866073
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_ActionId
-      value: 17e80075-6d6e-4e56-b2fd-d40dae4ae58d
+      value: 55c1a5cc-6cdc-4132-a994-1a120077d595
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_ActionId
-      value: 75fcc1d7-0410-4220-9b22-9c0aec8dc757
+      value: 17fce9a9-6e91-426f-9377-dc799f33eb7d
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
@@ -586,15 +586,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionName
-      value: 'Dialog/MiddleDialog[/Keyboard/s]'
+      value: 'Player/MiddleDialog[/Keyboard/s]'
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_ActionName
-      value: 'Dialog/LeftDialog[/Keyboard/q]'
+      value: 'Player/LeftDialog[/Keyboard/q]'
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_ActionName
-      value: 'Dialog/RightDialog[/Keyboard/d]'
+      value: 'Player/RightDialog[/Keyboard/d]'
       objectReference: {fileID: 0}
     - target: {fileID: 3360837816412675208, guid: adeafccc2e64bed42a00c7276a3fdbd6, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size

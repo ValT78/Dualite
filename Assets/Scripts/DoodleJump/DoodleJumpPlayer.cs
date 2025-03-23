@@ -33,6 +33,7 @@ public class DoodleJumpPlayer : MonoBehaviour
     {
         if (isDead) return;
 
+
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
 
         // Effet wrap (réapparaît de l'autre côté de l'écran)
@@ -48,7 +49,6 @@ public class DoodleJumpPlayer : MonoBehaviour
 
     public void OnDoodleMove(InputValue value)
     {
-        print(value.Get<Vector2>());
         moveInput = value.Get<Vector2>();
     }
 
