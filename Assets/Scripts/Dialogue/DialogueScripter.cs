@@ -13,6 +13,7 @@ public class DialogueScripter    : MonoBehaviour
     public float speed;
     public GameObject npcObject;
     public List<Sprite> allSprites;
+    private string[] dialoguesNames = { "boss02", "boss02", "boss03", "boss04", "boss05", "michel01", "michel02", "michel03", "maman01", "maman02", "maman03" };
 
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Story story; 
@@ -37,7 +38,7 @@ public class DialogueScripter    : MonoBehaviour
     {
         if (node.HasTag("boss")) return "Boss";
         if (node.HasTag("maman")) return "Maman";
-        if (node.HasTag("michel")) return "Michel";
+        if (node.HasTag("rat")) return "Michel";
         return "No Name";
     }
 
@@ -122,7 +123,9 @@ public class DialogueScripter    : MonoBehaviour
 
     private void ResetSprite()
     {
-        story.SetNextNode("boss01");
+        string dialogueName = GetRandomDialogue();
+        Debug.Log(dialogueName);
+        story.SetNextNode(dialogueName);
         StoryNode node = story.GetCurrentNode();
         string name = GetNameFromNode(node);
         dialogue = new Dialogue(name, story);
@@ -136,6 +139,11 @@ public class DialogueScripter    : MonoBehaviour
         // Reset dialogue 
         StartCoroutine(IsComing());
 
+    }
+
+    private string GetRandomDialogue()
+    {
+        return dialoguesNames[UnityEngine.Random.Range(0, dialoguesNames.Length)];
     }
 
 }
