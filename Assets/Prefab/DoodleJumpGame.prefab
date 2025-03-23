@@ -2341,8 +2341,8 @@ MonoBehaviour:
     breakableChance: 0
     movingChance: 0.7
     movingSpeed: 4
-    movingAPoint: {x: 0, y: 0}
-    movingBPoint: {x: 0, y: 0}
+    movingAPoint: {x: -3, y: 0}
+    movingBPoint: {x: 3, y: 0}
     monsterChance: 0.05
   - name: move2
     segmentHeight: 15
@@ -2351,8 +2351,8 @@ MonoBehaviour:
     breakableChance: 0
     movingChance: 0.7
     movingSpeed: 3
-    movingAPoint: {x: 0, y: 0}
-    movingBPoint: {x: 0, y: 0}
+    movingAPoint: {x: -3, y: 0}
+    movingBPoint: {x: 3, y: 0}
     monsterChance: 0.05
   - name: random
     segmentHeight: 20
