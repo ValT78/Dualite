@@ -57,12 +57,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6616206059166147124, guid: a6505dbb106853d4b9664d3731314047, type: 3}
+      propertyPath: gravity
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6616206059166147124, guid: a6505dbb106853d4b9664d3731314047, type: 3}
       propertyPath: behavior
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6616206059166147124, guid: a6505dbb106853d4b9664d3731314047, type: 3}
       propertyPath: jumpForce
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7736524631612934942, guid: a6505dbb106853d4b9664d3731314047, type: 3}
       propertyPath: m_Color.b

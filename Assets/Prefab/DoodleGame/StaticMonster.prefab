@@ -49,11 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: 0
   jumpForce: 5
-  jumpInterval: 2
+  gravity: 2
   speed: 2
   bodyNode: {fileID: 6398332276562772002}
-  vibrationIntensity: 0.1
-  vibrationSpeed: 3
+  vibrationIntensity: 0.5
+  vibrationSpeed: 4
 --- !u!61 &1210380001258333847
 BoxCollider2D:
   m_ObjectHideFlags: 0
