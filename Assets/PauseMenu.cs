@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Menu");
+        GameManager.Instance.ResetScene();
     }
 
 }

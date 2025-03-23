@@ -131,7 +131,13 @@ public class DoodleJumpPlayer : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.angularVelocity = deathTorque;
         col.enabled = false;
-        Destroy(gameObject, timeBeforeDestroy);
         SoundManager.PlaySound(SoundType.Death, 1);
+        StartCoroutine(ComeBackToMenu());
+    }
+
+    private IEnumerator ComeBackToMenu()
+    {
+        yield return new WaitForSeconds(timeBeforeDestroy);
+        GameManager.Instance.ResetScene();
     }
 }
